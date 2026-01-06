@@ -5,10 +5,10 @@ import { KPIItem, FAQItem } from '../types';
 export const LoadingScreen: React.FC<{ active: boolean }> = ({ active }) => (
   <div className={`loading-screen ${active ? '' : 'hidden'}`}>
     <div className="relative mb-8">
-      <div className="w-20 h-20 rounded-2xl bg-primary flex items-center justify-center text-white relative z-10 animate-float shadow-2xl shadow-primary/50">
-        <span className="material-symbols-outlined text-4xl">view_in_ar</span>
+      <div className="w-28 h-28 relative z-10 animate-float">
+        <img src="logo.png" alt="Ad Sales-In-A-Box Logo" className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(0,159,221,0.5)]" />
       </div>
-      <div className="absolute inset-0 rounded-2xl bg-primary/40 animate-sonar blur-xl"></div>
+      <div className="absolute inset-0 rounded-full bg-primary/30 animate-sonar blur-2xl"></div>
     </div>
     <h2 className="text-2xl font-black text-white tracking-tighter mb-2">Ad Sales-In-A-Box</h2>
     <div className="flex items-center gap-3">

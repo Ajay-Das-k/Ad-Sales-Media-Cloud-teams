@@ -45,7 +45,7 @@ const App: React.FC = () => {
     return () => {
       revealedElements.forEach(el => observer.unobserve(el));
     };
-  }, [darkMode, loading]); // Re-run when loading ends to catch newly rendered elements
+  }, [darkMode, loading]);
 
   useEffect(() => {
     // Simulate initial loading
@@ -66,10 +66,8 @@ const App: React.FC = () => {
         {/* Sticky Navbar */}
         <nav className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
           <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-white">
-                <span className="material-symbols-outlined text-lg">view_in_ar</span>
-              </div>
+            <div className="flex items-center gap-3">
+              <img src="logo.png" alt="Ad Sales-In-A-Box Logo" className="w-10 h-10 object-contain" />
               <span className="font-bold text-lg tracking-tight">Ad Sales-In-A-Box</span>
             </div>
 
@@ -475,10 +473,8 @@ const App: React.FC = () => {
         {/* Footer */}
         <footer className="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark reveal">
           <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-white">
-                <span className="material-symbols-outlined text-lg">view_in_ar</span>
-              </div>
+            <div className="flex items-center gap-3">
+              <img src="logo.png" alt="Ad Sales-In-A-Box Logo" className="w-10 h-10 object-contain" />
               <span className="font-bold text-lg tracking-tight">Ad Sales-In-A-Box</span>
             </div>
             <div className="flex gap-8 text-sm text-slate-500">

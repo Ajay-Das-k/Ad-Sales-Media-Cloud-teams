@@ -39,14 +39,57 @@
     <style>
       @keyframes float {
         0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
+        50% { transform: translateY(-15px); }
       }
       .animate-float { animation: float 6s ease-in-out infinite; }
       
-      .glass {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+      @keyframes jitter {
+        0% { transform: translate(0,0) rotate(0); }
+        25% { transform: translate(1px, 1px) rotate(1deg); }
+        50% { transform: translate(-1px, -1px) rotate(-1deg); }
+        75% { transform: translate(1px, -1px) rotate(1deg); }
+        100% { transform: translate(0,0) rotate(0); }
+      }
+      .animate-jitter { animation: jitter 0.5s infinite; }
+
+      @keyframes sonar {
+        0% { transform: scale(0.8); opacity: 0.5; }
+        100% { transform: scale(1.5); opacity: 0; }
+      }
+      .animate-sonar { animation: sonar 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+      @keyframes rotate-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-rotate-slow { animation: rotate-slow 60s linear infinite; }
+      .animate-rotate-medium { animation: rotate-slow 40s linear infinite reverse; }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, opacity;
+      }
+      .reveal-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .loading-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: #0B1220;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.8s ease, visibility 0.8s;
+      }
+      .loading-screen.hidden {
+        opacity: 0;
+        visibility: hidden;
       }
 
       html {

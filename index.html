@@ -1,101 +1,153 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ad Sales-In-A-Box | Salesforce Media Cloud</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: {
-                DEFAULT: '#009FDD',
-                dark: '#0084B8'
-              },
-              secondary: {
-                DEFAULT: '#387BAF',
-                dark: '#2D628C'
-              },
-              background: {
-                light: '#FFFFFF',
-                dark: '#0B1220'
-              }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ad Sales-In-A-Box | Salesforce Media Cloud</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#009FDD',
+              dark: '#0084B8'
             },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
+            secondary: {
+              DEFAULT: '#387BAF',
+              dark: '#2D628C'
             },
+            background: {
+              light: '#FFFFFF',
+              dark: '#0B1220'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
           },
         },
-      }
-    </script>
-    <style>
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
-      }
-      .animate-float { animation: float 6s ease-in-out infinite; }
-      
-      @keyframes jitter {
-        0% { transform: translate(0,0) rotate(0); }
-        25% { transform: translate(1px, 1px) rotate(1deg); }
-        50% { transform: translate(-1px, -1px) rotate(-1deg); }
-        75% { transform: translate(1px, -1px) rotate(1deg); }
-        100% { transform: translate(0,0) rotate(0); }
-      }
-      .animate-jitter { animation: jitter 0.5s infinite; }
+      },
+    }
+  </script>
+  <style>
+    @keyframes float {
 
-      @keyframes sonar {
-        0% { transform: scale(0.8); opacity: 0.5; }
-        100% { transform: scale(1.5); opacity: 0; }
+      0%,
+      100% {
+        transform: translateY(0px);
       }
-      .animate-sonar { animation: sonar 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
 
-      @keyframes rotate-slow {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+      50% {
+        transform: translateY(-15px);
       }
-      .animate-rotate-slow { animation: rotate-slow 60s linear infinite; }
-      .animate-rotate-medium { animation: rotate-slow 40s linear infinite reverse; }
+    }
 
-      .reveal {
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes jitter {
+      0% {
+        transform: translate(0, 0) rotate(0);
+      }
+
+      25% {
+        transform: translate(1px, 1px) rotate(1deg);
+      }
+
+      50% {
+        transform: translate(-1px, -1px) rotate(-1deg);
+      }
+
+      75% {
+        transform: translate(1px, -1px) rotate(1deg);
+      }
+
+      100% {
+        transform: translate(0, 0) rotate(0);
+      }
+    }
+
+    .animate-jitter {
+      animation: jitter 0.5s infinite;
+    }
+
+    @keyframes sonar {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: scale(1.5);
         opacity: 0;
-        transform: translateY(30px) scale(0.98);
-        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        will-change: transform, opacity;
       }
-      .reveal-visible {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+    }
+
+    .animate-sonar {
+      animation: sonar 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes rotate-slow {
+      from {
+        transform: rotate(0deg);
       }
 
-      .loading-screen {
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        background: #0B1220;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: opacity 0.8s ease, visibility 0.8s;
+      to {
+        transform: rotate(360deg);
       }
-      .loading-screen.hidden {
-        opacity: 0;
-        visibility: hidden;
-      }
+    }
 
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+    .animate-rotate-slow {
+      animation: rotate-slow 60s linear infinite;
+    }
+
+    .animate-rotate-medium {
+      animation: rotate-slow 40s linear infinite reverse;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #0B1220;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease, visibility 0.8s;
+    }
+
+    .loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -106,7 +158,10 @@
 }
 </script>
 </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>

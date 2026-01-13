@@ -20,19 +20,19 @@ export const LoadingScreen: React.FC<{ active: boolean }> = ({ active }) => (
   </div>
 );
 
-export const Section: React.FC<{ 
-  id?: string; 
-  children: React.ReactNode; 
-  className?: string 
+export const Section: React.FC<{
+  id?: string;
+  children: React.ReactNode;
+  className?: string
 }> = ({ id, children, className = '' }) => (
   <section id={id} className={`w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl ${className}`}>
     {children}
   </section>
 );
 
-export const Card: React.FC<{ 
-  children: React.ReactNode; 
-  className?: string 
+export const Card: React.FC<{
+  children: React.ReactNode;
+  className?: string
 }> = ({ children, className = '' }) => (
   <div className={`rounded-2xl border border-slate-200 dark:border-slate-800 transition-all duration-300 ${className}`}>
     {children}
@@ -52,7 +52,7 @@ export const CTAButton: React.FC<{
   };
 
   return (
-    <button 
+    <button
       onClick={onClick}
       className={`${baseStyles} ${variants[variant]} h-12 px-6 ${className}`}
     >
@@ -96,7 +96,7 @@ export const FAQAccordion: React.FC<{ items: FAQItem[] }> = ({ items }) => {
     <div className="space-y-4">
       {items.map((item, i) => (
         <div key={i} className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 reveal" style={{ transitionDelay: `${i * 100}ms` }}>
-          <button 
+          <button
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
             className="w-full flex items-center justify-between p-6 text-left font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
           >
@@ -121,12 +121,12 @@ export const ArchitectureDiagram: React.FC = () => {
     <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center reveal">
       {/* Ring 4: External Systems - Outer Rotating Ring */}
       <div className="absolute inset-0 border-2 border-slate-200 dark:border-slate-800 rounded-full flex items-center justify-center animate-rotate-slow">
-         <div className="absolute top-0 p-2 bg-white dark:bg-slate-800 rounded-lg -translate-y-1/2 border border-slate-200 dark:border-slate-700 cursor-help group/node shadow-lg animate-float">
-            <span className="material-symbols-outlined text-slate-500">cloud_queue</span>
-            <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 p-3 rounded bg-background-dark text-white text-[10px] w-40 opacity-0 group-hover/node:opacity-100 transition-opacity pointer-events-none z-50 shadow-2xl">
-              External: Salesforce Media Cloud, GAM, Freewheel, NetSuite.
-            </div>
-         </div>
+        <div className="absolute top-0 p-2 bg-white dark:bg-slate-800 rounded-lg -translate-y-1/2 border border-slate-200 dark:border-slate-700 cursor-help group/node shadow-lg animate-float">
+          <span className="material-symbols-outlined text-slate-500">cloud_queue</span>
+          <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 p-3 rounded bg-background-dark text-white text-[10px] w-40 opacity-0 group-hover/node:opacity-100 transition-opacity pointer-events-none z-50 shadow-2xl">
+            External: Salesforce Media Cloud, GAM, Freewheel, NetSuite.
+          </div>
+        </div>
       </div>
 
       {/* Ring 3: MCPs - Reverse Rotating Ring */}
@@ -151,9 +151,11 @@ export const ArchitectureDiagram: React.FC = () => {
       </div>
 
       {/* Center Hub: PacePal */}
-      <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-white shadow-2xl shadow-primary/40 z-10 cursor-help group/pacepal relative">
-        <div className="absolute inset-0 rounded-full bg-primary animate-sonar"></div>
-        <span className="material-symbols-outlined text-4xl relative z-20">psychology</span>
+      <div className="w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-primary flex items-center justify-center shadow-2xl shadow-primary/40 z-10 cursor-help group/pacepal relative">
+        <div className="absolute inset-0 rounded-full bg-primary/10 animate-sonar"></div>
+        <div className="w-16 h-16 relative z-20 transition-transform group-hover/pacepal:scale-110 duration-300">
+          <img src="pacepal_logo.png" alt="PacePal" className="w-full h-full object-contain" />
+        </div>
         <div className="absolute top-full mt-4 p-4 rounded-xl bg-background-dark text-white text-xs w-48 opacity-0 group-hover/pacepal:opacity-100 transition-opacity pointer-events-none z-50 shadow-2xl text-center">
           <p className="font-bold text-primary mb-1">PacePal Core</p>
           The central reasoning agent orchestrating all sub-agent actions.

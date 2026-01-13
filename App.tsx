@@ -7,6 +7,7 @@ import {
   Section, Card, CTAButton, IconTile, KPIGrid, FAQAccordion, ArchitectureDiagram, LoadingScreen
 } from './components/UI';
 import EcosystemAnimation from './components/EcosystemAnimation';
+import ChannelsAnimation from './components/ChannelsAnimation';
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -409,34 +410,7 @@ const App: React.FC = () => {
             <p className="text-slate-400">One view of truth across all media types.</p>
           </div>
           <div className="flex flex-col items-center gap-12">
-            <div className="relative w-72 h-72 flex items-center justify-center">
-              <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-white z-10 shadow-2xl shadow-primary/40 animate-sonar">
-                <span className="material-symbols-outlined text-4xl">hub</span>
-              </div>
-              {/* Orbital icons */}
-              {[
-                { icon: 'devices', label: 'Digital', angle: 0 },
-                { icon: 'share', label: 'Social', angle: 60 },
-                { icon: 'tv', label: 'Linear', angle: 120 },
-                { icon: 'print', label: 'Print', angle: 180 },
-                { icon: 'search', label: 'Search', angle: 240 },
-                { icon: 'location_on', label: 'D/OOH', angle: 300 },
-              ].map((item, i) => (
-                <div
-                  key={item.label}
-                  className="absolute flex flex-col items-center gap-1 group animate-float"
-                  style={{
-                    transform: `rotate(${item.angle}deg) translateY(-140px) rotate(-${item.angle}deg)`,
-                    animationDelay: `${i * -1.5}s`
-                  }}
-                >
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer group-hover:scale-110">
-                    <span className="material-symbols-outlined">{item.icon}</span>
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-white">{item.label}</span>
-                </div>
-              ))}
-            </div>
+            <ChannelsAnimation />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
               {[
                 'Unified planning across Linear & Digital',

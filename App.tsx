@@ -210,7 +210,7 @@ const App: React.FC = () => {
 
 
         {/* Problem & Solution */}
-        <Section id="problem" className="bg-slate-50 dark:bg-slate-900/50 py-24 reveal">
+        <Section id="problem" className="py-24 reveal">
           <div className="text-center mb-16 relative">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
               The Reality of Media Ad Sales — and the Fix
@@ -226,7 +226,7 @@ const App: React.FC = () => {
                 Disconnected Tools. Broken Processes.
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-8 font-medium">
-                Every media organization relies on a patchwork of systems:
+                Every media organization relies on a patchwork of systems.
               </p>
 
               {/* Visual: Patchwork of Systems */}
@@ -243,9 +243,11 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              <p className="text-slate-700 dark:text-slate-300 font-semibold mb-6">
-                Each system may be automated — but the <span className="font-bold">automation is siloed.</span>
-              </p>
+              <div className="min-h-[3.5rem] flex items-start pb-2">
+                <p className="text-slate-700 dark:text-slate-300 font-semibold mb-6">
+                  Each system may be automated — but the <span className="font-bold">automation is siloed.</span>
+                </p>
+              </div>
 
               {/* Result Box */}
               <div className="mt-auto bg-slate-100 dark:bg-slate-700/50 p-6 rounded-r-lg border-l-4 border-red-500">
@@ -261,15 +263,13 @@ const App: React.FC = () => {
                 One Connected System.
               </h3>
 
-              <p className="text-slate-600 dark:text-slate-400 text-sm mb-2">
-                Pitch. Proposal. Order. Replans. Execution. Billing handoff. Reporting.
+              <p className="text-slate-600 dark:text-slate-400 mb-8 font-medium">
+                Pitch. Proposal. Order. Replans. Execution. Billing handoff. Reporting. <span className="font-bold text-slate-900 dark:text-white">All connected. All in Salesforce.</span>
               </p>
               <p className="text-slate-800 dark:text-slate-200 font-bold mb-1">
-                All connected. All in Salesforce.
+
               </p>
-              <p className="text-slate-600 dark:text-slate-400 text-sm mb-8">
-                No overlays. No fragile integrations. No custom CPQ projects.
-              </p>
+
 
               {/* Visual: Connected Hub */}
               <div className="flex-1 flex items-center justify-center mb-8 relative min-h-[200px]">
@@ -289,9 +289,11 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              <p className="text-slate-700 dark:text-slate-300 text-sm mb-6">
-                Ad Sales-In-A-Box eliminates these silos — connecting the full Pitch-to-Pay lifecycle in one Salesforce-native system.
-              </p>
+              <div className="min-h-[3.5rem] flex items-start pb-2">
+                <p className="text-slate-700 dark:text-slate-300 font-semibold mb-6">
+                  Ad Sales-In-A-Box eliminates silos of automation
+                </p>
+              </div>
 
               {/* Result Box */}
               <div className="mt-auto bg-slate-100 dark:bg-slate-700/50 p-6 rounded-r-lg border-l-4 border-green-500">
@@ -306,30 +308,164 @@ const App: React.FC = () => {
 
         {/* USP Section */}
         <Section id="usp" className="py-24 reveal">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Makes Us Different</h2>
-            <p className="text-slate-600 dark:text-slate-400">Better data. Better decisions. Faster revenue.</p>
+          <div className="text-center mb-16 relative">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">What Makes Us Different</h2>
+            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
+            <p className="text-xl md:text-2xl font-bold text-[#00A1E0]">Purpose-built for media selling and Salesforce deal cycles</p>
           </div>
-          <div className="flex flex-col gap-6 max-w-4xl mx-auto">
-            {USPS.map((usp, i) => (
-              <Card key={i} className={`p-8 flex items-start gap-8 hover:border-primary/50 transition-all bg-white dark:bg-slate-900/50 reveal [transition-delay:${i * 150}ms] ${i % 2 === 1 ? 'bg-slate-50 dark:bg-slate-900/80' : ''}`}>
-                <div className="w-14 h-14 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform p-3">
-                  {usp.icon.endsWith('.png') ? (
-                    <img src={usp.icon} alt={usp.title} className="w-full h-full object-contain" />
-                  ) : (
-                    <span className="material-symbols-outlined text-3xl">{usp.icon}</span>
-                  )}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">{usp.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 mb-3">{usp.description}</p>
-                  <p className="text-primary font-bold text-sm">{usp.result}</p>
-                </div>
-              </Card>
-            ))}
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
+
+            {/* Card 1: AI-First (Purple) */}
+            <Card className="p-8 bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all border border-slate-100 dark:border-slate-700 flex flex-col items-start text-left h-full">
+              <div className="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-300 mb-6">
+                <span className="material-symbols-outlined text-3xl">auto_awesome</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">AI-First, Not Retrofitted</h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed flex-1">
+                Built for intelligence from day one with a unified data model for intelligent pricing and forecasting.
+              </p>
+              <p className="text-purple-700 dark:text-purple-400 font-bold text-sm">
+                Faster decisions. Smarter deals.
+              </p>
+            </Card>
+
+            {/* Card 2: Fast to Deploy (Green) */}
+            <Card className="p-8 bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all border border-slate-100 dark:border-slate-700 flex flex-col items-start text-left h-full">
+              <div className="w-14 h-14 rounded-2xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-300 mb-6">
+                <span className="material-symbols-outlined text-3xl">rocket_launch</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Fast to Deploy</h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed flex-1">
+                Pre-configured workflows replace heavy customization. Customers go live quickly and see ROI sooner.
+              </p>
+              <p className="text-green-700 dark:text-green-400 font-bold text-sm">
+                Live in weeks, not quarters.
+              </p>
+            </Card>
+
+            {/* Card 3: Spreadsheets, Connected (Blue) */}
+            <Card className="p-8 bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all border border-slate-100 dark:border-slate-700 flex flex-col items-start text-left h-full">
+              <div className="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-300 mb-6">
+                <span className="material-symbols-outlined text-3xl">grid_on</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Spreadsheets, Connected</h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed flex-1">
+                The only platform with real-time, two-way integration between spreadsheets and the system of record.
+              </p>
+              <p className="text-blue-700 dark:text-blue-400 font-bold text-sm">
+                High adoption, no breakage.
+              </p>
+            </Card>
+
           </div>
         </Section>
 
+
+        {/* AI Agents Section */}
+        <Section id="ai-agents" className="py-24 reveal">
+          <div className="text-center mb-16 relative px-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+              AI Agents Every Step of the Way. <br className="hidden md:block" /> From Pitch to Pay.
+            </h2>
+            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
+            <p className="text-xl md:text-2xl font-bold text-[#00A1E0]">
+              Agent-assisted ad sales workflows. Works with Agentforce.
+            </p>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 flex flex-col gap-8">
+            {/* Row 1: 3 Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Agent 1 */}
+              <Card className="p-8 bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                <div className="flex justify-between items-start mb-6">
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-[10px] font-bold uppercase tracking-wider rounded-full">Marketing Agent</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Demand Generation</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1">
+                  <span className="font-bold text-slate-900 dark:text-slate-200">What it does:</span> Creates and executes targeted, multi-level marketing campaigns to generate demand — including campaigns run on behalf of advertisers and brands.
+                </p>
+                <div className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
+                  <p className="text-xs text-green-800 dark:text-green-300 font-medium">
+                    <span className="font-bold">Outcome:</span> Increased pipeline. Higher-quality leads. New revenue opportunities.
+                  </p>
+                </div>
+              </Card>
+
+              {/* Agent 2 */}
+              <Card className="p-8 bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                <div className="flex justify-between items-start mb-6">
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-[10px] font-bold uppercase tracking-wider rounded-full">Media Planning Agent</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Media Planning</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1">
+                  <span className="font-bold text-slate-900 dark:text-slate-200">What it does:</span> Guides sellers through multi-site, multi-flight, cross-channel media plans using media-specific logic and intelligence.
+                </p>
+                <div className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
+                  <p className="text-xs text-green-800 dark:text-green-300 font-medium">
+                    <span className="font-bold">Outcome:</span> Faster proposals. Higher seller productivity. Greater plan accuracy.
+                  </p>
+                </div>
+              </Card>
+
+              {/* Agent 3 */}
+              <Card className="p-8 bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                <div className="flex justify-between items-start mb-6">
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-[10px] font-bold uppercase tracking-wider rounded-full">Campaign Optimization Agent</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Campaign Replanning</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1">
+                  <span className="font-bold text-slate-900 dark:text-slate-200">What it does:</span> Predicts performance, adjusts pacing, reallocates budgets, and automatically updates upstream plans and downstream execution systems.
+                </p>
+                <div className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
+                  <p className="text-xs text-green-800 dark:text-green-300 font-medium">
+                    <span className="font-bold">Outcome:</span> Protected revenue. Optimized yield. Fewer manual interventions.
+                  </p>
+                </div>
+              </Card>
+            </div>
+
+            {/* Row 2: 2 Cards centered */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:w-2/3 mx-auto">
+              {/* Agent 4 */}
+              <Card className="p-8 bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                <div className="flex justify-between items-start mb-6">
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-[10px] font-bold uppercase tracking-wider rounded-full">IO Ingestion Agent</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">IO Ingestion & Validation</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1">
+                  <span className="font-bold text-slate-900 dark:text-slate-200">What it does:</span> Ingests IOs from emails and PDFs, validates fields against the Media Plan, and creates error-free IOs linked to campaigns.
+                </p>
+                <div className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
+                  <p className="text-xs text-green-800 dark:text-green-300 font-medium">
+                    <span className="font-bold">Outcome:</span> Zero manual effort. Faster, error-free execution. Higher operational efficiency.
+                  </p>
+                </div>
+              </Card>
+
+              {/* Agent 5 */}
+              <Card className="p-8 bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                <div className="flex justify-between items-start mb-6">
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-[10px] font-bold uppercase tracking-wider rounded-full">Reconciliation Agent</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Revenue Assurance</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1">
+                  <span className="font-bold text-slate-900 dark:text-slate-200">What it does:</span> Reconciles Booked vs. Ordered vs. Delivered across systems to surface gaps and prevent revenue leakage.
+                </p>
+                <div className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r">
+                  <p className="text-xs text-green-800 dark:text-green-300 font-medium">
+                    <span className="font-bold">Outcome:</span> Accurate billing. Fewer disputes. Faster revenue recognition.
+                  </p>
+                </div>
+              </Card>
+            </div>
+          </div>
+
+          <p className="text-center mt-12 text-slate-900 dark:text-white font-bold text-lg">
+            Orchestrated by PacePal — the Pitch-to-Pay AI.
+          </p>
+        </Section>
         {/* Audience Split */}
         <Section id="audience" className="bg-background-dark text-white py-24 rounded-3xl mx-4 mb-24 overflow-hidden relative reveal">
           <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none"></div>
@@ -601,7 +737,7 @@ const App: React.FC = () => {
             <p className="text-slate-400 text-sm">© 2024 Salesforce Media Cloud Partner. All rights reserved.</p>
           </div>
         </footer>
-      </div>
+      </div >
     </>
   );
 };

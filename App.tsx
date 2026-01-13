@@ -309,7 +309,7 @@ const App: React.FC = () => {
         </Section>
 
         {/* Ecosystem Section */}
-        <Section id="ecosystem" className="py-24 bg-slate-50 dark:bg-slate-900/50 reveal">
+        <Section id="ecosystem" className="py-12 reveal">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">An Eco-system of Connected Agents for Ad Sales</h2>
             <div className="max-w-4xl mx-auto space-y-4">

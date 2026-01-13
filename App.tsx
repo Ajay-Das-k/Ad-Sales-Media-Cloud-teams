@@ -147,11 +147,11 @@ const App: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-tr from-primary to-secondary rounded-2xl blur-2xl opacity-10 dark:opacity-20"></div>
-              <div className="relative bg-slate-900 rounded-xl overflow-hidden shadow-2xl aspect-video border border-white/10 flex items-center justify-center group">
+              <a href="https://youtu.be/wP3JDGQlaiY" target="_blank" rel="noopener noreferrer" className="relative bg-slate-900 rounded-xl overflow-hidden shadow-2xl aspect-video border border-white/10 flex items-center justify-center group cursor-pointer hover:border-primary/50 transition-colors">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent pointer-events-none group-hover:opacity-60 transition-opacity"></div>
                 <span className="material-symbols-outlined text-white/20 text-8xl transition-all duration-500 group-hover:scale-110 group-hover:text-primary/40">play_circle</span>
-                <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/40 text-sm font-medium">Product Overview Video</p>
-              </div>
+                <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/40 text-sm font-medium">Watch Product Overview</p>
+              </a>
             </div>
           </div>
         </Section>

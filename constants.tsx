@@ -2,15 +2,9 @@
 import { NavLink, KPIItem, FAQItem, WorkflowItem, USPItem, ExtendsSFItem } from './types';
 
 export const NAV_LINKS: NavLink[] = [
-  { label: 'Hero', href: '#hero' },
-  { label: 'Problem', href: '#problem' },
-  { label: 'USP', href: '#usp' },
-  { label: 'Audience', href: '#audience' },
-  { label: 'Extends SF', href: '#extends-sf' },
+  { label: 'Home', href: '#hero' },
   { label: 'Workflows', href: '#workflows' },
   { label: 'Architecture', href: '#architecture' },
-  { label: 'Channels', href: '#channels' },
-  { label: 'Proof', href: '#proof' },
   { label: 'FAQ', href: '#faq' },
 ];
 

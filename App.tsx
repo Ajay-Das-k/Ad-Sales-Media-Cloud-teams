@@ -68,21 +68,34 @@ const App: React.FC = () => {
         {/* Sticky Navbar */}
         <nav className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
           <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img src="logo.png" alt="Ad Sales-In-A-Box Logo" className="w-10 h-10 object-contain" />
-              <span className="font-bold text-lg tracking-tight">Ad Sales-In-A-Box</span>
+            <div className="flex items-center gap-4">
+              {/* Original Logo */}
+              <div className="flex items-center gap-3">
+                <img src="logo.png" alt="Ad Sales-In-A-Box Logo" className="w-10 h-10 object-contain" />
+                <span className="font-bold text-lg tracking-tight hidden sm:block">Ad Sales-In-A-Box</span>
+              </div>
+
+              {/* Vertical Divider */}
+              <div className="h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
+
+              {/* New CRMantra Logo */}
+              <div className="h-5 flex items-center opacity-90">
+                <img src="crmantra_logo.png" alt="CRMantra" className="h-full object-contain" />
+              </div>
             </div>
 
-            <div className="hidden lg:flex items-center gap-6">
-              {NAV_LINKS.map(link => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+            <div className="flex-1 flex justify-end items-center gap-6 ml-auto mr-6">
+              <div className="hidden lg:flex items-center gap-6">
+                {NAV_LINKS.map(link => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-[11px] font-bold text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors uppercase tracking-widest"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
 
             <div className="flex items-center gap-4">
@@ -443,18 +456,49 @@ const App: React.FC = () => {
         </Section>
 
         {/* Final CTA Band */}
-        <Section className="py-24 bg-gradient-to-r from-primary to-secondary text-white text-center rounded-b-3xl mx-4 reveal">
-          <h2 className="text-3xl md:text-5xl font-black mb-6">Ready to lead the future of Media Sales?</h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto mb-10">
-            Join the ranks of high-performing media teams using Ad Sales-In-A-Box to drive
-            predictable, scalable revenue directly within Salesforce.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <CTAButton className="bg-white text-primary hover:bg-slate-100 h-14 px-10 text-lg reveal">Request a Demo</CTAButton>
-            <CTAButton className="bg-transparent border-white text-white hover:bg-white/10 h-14 px-10 text-lg reveal [transition-delay:200ms]">Talk to an Expert</CTAButton>
+        {/* Final CTA Band (Redesigned) */}
+        <div className="relative py-32 mt-24 mx-4 rounded-3xl overflow-hidden bg-slate-900 border border-white/10 shadow-2xl reveal">
+          {/* Background Effects */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-primary/20 via-slate-900/50 to-transparent opacity-50"></div>
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 grayscale"></div>
+          <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-primary/30 rounded-full blur-[100px] pointer-events-none"></div>
+          <div className="absolute -right-20 -top-20 w-96 h-96 bg-secondary/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+          <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-xs font-bold text-primary mb-8 animate-float">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              Ready for the future?
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-8 leading-tight">
+              Transform your Ad Sales <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Revenue Engine</span> today.
+            </h2>
+
+            <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+              Join high-performing media teams using <span className="text-white font-semibold">Ad Sales-In-A-Box</span> to drive predictable, scalable growth directly within Salesforce.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <CTAButton className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white border-0 h-16 px-12 text-xl font-bold shadow-xl shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300">
+                Request a Demo
+              </CTAButton>
+
+              <button className="group flex items-center gap-3 text-slate-300 font-bold text-lg hover:text-white transition-colors px-6 py-4 rounded-xl hover:bg-white/5">
+                <span>Talk to an Expert</span>
+                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </button>
+            </div>
+
+            <div className="mt-12 flex items-center justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+              <div className="h-8 w-px bg-white/20"></div>
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Rapid Integration</span>
+              <div className="h-8 w-px bg-white/20"></div>
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Secure by Design</span>
+              <div className="h-8 w-px bg-white/20"></div>
+            </div>
           </div>
-          <p className="mt-8 text-white/50 text-sm font-medium">Integration starts in minutes. Value realized in weeks.</p>
-        </Section>
+        </div>
 
         {/* FAQ */}
         <Section id="faq" className="py-24 bg-slate-50 dark:bg-slate-900/50 reveal">

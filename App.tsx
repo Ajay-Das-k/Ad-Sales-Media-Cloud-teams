@@ -8,6 +8,8 @@ import {
 } from './components/UI';
 import EcosystemAnimation from './components/EcosystemAnimation';
 import ChannelsAnimation from './components/ChannelsAnimation';
+import HeroAnimation from './components/HeroAnimation';
+
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -58,10 +60,37 @@ const App: React.FC = () => {
   }, []);
 
   const toggleTheme = () => setDarkMode(!darkMode);
+  const [showVideoModal, setShowVideoModal] = useState(false);
 
   return (
     <>
       <LoadingScreen active={loading} />
+
+      {/* Video Modal Overlay */}
+      {showVideoModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/90 backdrop-blur-md animate-in fade-in duration-300" onClick={() => setShowVideoModal(false)}>
+          <button
+            className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors"
+            onClick={() => setShowVideoModal(false)}
+          >
+            <span className="material-symbols-outlined text-4xl">close</span>
+          </button>
+          <div
+            className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10"
+            onClick={e => e.stopPropagation()}
+          >
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/wP3JDGQlaiY?autoplay=1"
+              title="Product Overview Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
+      )}
 
       <div className={`min-h-screen font-sans bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300 ${loading ? 'overflow-hidden max-h-screen' : ''}`}>
 
@@ -84,33 +113,45 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex-1 flex justify-end items-center gap-6 ml-auto mr-6">
-              <div className="hidden lg:flex items-center gap-6">
+            <div className="flex-1 flex justify-end items-center gap-8 ml-auto">
+              {/* Desktop Nav Links - Updated Styling */}
+              <div className="hidden lg:flex items-center gap-8">
                 {NAV_LINKS.map(link => (
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-[11px] font-bold text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors uppercase tracking-widest"
+                    className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors"
                   >
                     {link.label}
                   </a>
                 ))}
               </div>
-            </div>
 
-            <div className="flex items-center gap-4">
+              {/* Book a Demo Button (Pill Shape) */}
+              <a
+                href="#cta"
+                className="hidden sm:flex items-center px-6 py-2.5 bg-[#00A1E0] hover:bg-[#008CC2] text-white text-sm font-bold rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+              >
+                Book a Demo
+              </a>
+
+              {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400"
+                className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                 aria-label="Toggle Theme"
               >
-                <span className="material-symbols-outlined">
-                  {darkMode ? 'light_mode' : 'dark_mode'}
-                </span>
+                {darkMode ? (
+                  <span className="material-symbols-outlined text-xl">light_mode</span>
+                ) : (
+                  <span className="material-symbols-outlined text-xl">dark_mode</span>
+                )}
               </button>
-              <CTAButton variant="primary" className="hidden md:flex h-9 px-4 text-sm">
-                Request a Demo
-              </CTAButton>
+
+              {/* Mobile Menu Button */}
+              <button className="lg:hidden p-2">
+                <span className="material-symbols-outlined text-2xl">menu</span>
+              </button>
             </div>
           </div>
         </nav>
@@ -119,113 +160,147 @@ const App: React.FC = () => {
         <Section id="hero" className="pt-16 pb-24 overflow-hidden reveal">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="flex flex-col gap-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 w-fit">
-                <span className="material-symbols-outlined text-primary text-sm">bolt</span>
-                <span className="text-xs font-semibold text-primary uppercase tracking-wide">Native to Salesforce</span>
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight">
-                Ad Sales-In-A-Box
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white">
+                <span className="text-[#00A0DF]">AI-First.</span> <br className="hidden md:block" />
+                Salesforce-Native. <br className="hidden md:block" />
+                Pitch-to-Pay.
               </h1>
-              <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
-                The Salesforce-native engine for modern Media Cloud teams. Streamline your entire ad lifecycle from pitch to payment.
+              <p className="text-xl md:text-2xl font-bold text-slate-800 dark:text-slate-200 mt-2">
+                One intelligent ad sales system — inside Salesforce.
               </p>
-              <p className="text-sm font-medium text-slate-400 dark:text-slate-500 italic">
-                Trusted by 50+ media publishers globally to drive 20% more revenue.
+              <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
+                A complete ad sales and order management platform connecting pitch, proposal, replans, execution, and billing.
               </p>
-              <div className="flex flex-wrap gap-4 pt-2">
-                <CTAButton variant="primary">Request a Demo</CTAButton>
-                <CTAButton variant="secondary">Talk to an Expert</CTAButton>
+              <div className="flex flex-wrap gap-4 pt-4">
+                {/* Watch an Overview Button */}
+                <button
+                  onClick={() => setShowVideoModal(true)}
+                  className="group flex items-center gap-3 px-6 py-3.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full shadow-sm hover:shadow-md hover:border-primary/50 transition-all"
+                >
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors text-primary">
+                    <span className="material-symbols-outlined text-xl">play_arrow</span>
+                  </div>
+                  <span className="font-bold text-slate-700 dark:text-slate-200">Watch an overview</span>
+                </button>
+
+                {/* Book a Demo Button */}
+                <a
+                  href="#cta"
+                  className="flex items-center px-8 py-3.5 bg-[#00A1E0] hover:bg-[#008CC2] text-white font-bold rounded-full shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 transition-all transform hover:-translate-y-0.5"
+                >
+                  Book a demo
+                </a>
               </div>
               <div className="pt-8 border-t border-slate-200 dark:border-slate-800">
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Trusted by Media Leaders</p>
                 <div className="flex flex-wrap gap-8 items-center grayscale opacity-50">
-                  {LOGOS.map(logo => (
-                    <span key={logo} className="font-bold text-xl tracking-tighter text-slate-400">{logo}</span>
-                  ))}
+                  <span className="font-black text-2xl tracking-tight text-slate-800 dark:text-slate-200">SONY</span>
+                  <span className="font-black text-2xl tracking-tight text-slate-800 dark:text-slate-200">ADA</span>
+                  <span className="font-black text-2xl tracking-tight text-slate-800 dark:text-slate-200">yahoo!</span>
                 </div>
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-primary to-secondary rounded-2xl blur-2xl opacity-10 dark:opacity-20"></div>
-              <a href="https://youtu.be/wP3JDGQlaiY" target="_blank" rel="noopener noreferrer" className="relative bg-slate-900 rounded-xl overflow-hidden shadow-2xl aspect-video border border-white/10 flex items-center justify-center group cursor-pointer hover:border-primary/50 transition-colors">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent pointer-events-none group-hover:opacity-60 transition-opacity"></div>
-                <span className="material-symbols-outlined text-white/20 text-8xl transition-all duration-500 group-hover:scale-110 group-hover:text-primary/40">play_circle</span>
-                <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/40 text-sm font-medium">Watch Product Overview</p>
-              </a>
+              <HeroAnimation />
             </div>
           </div>
         </Section>
 
+
+
         {/* Problem & Solution */}
         <Section id="problem" className="bg-slate-50 dark:bg-slate-900/50 py-24 reveal">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">The Reality of Media Ad Sales — and the Fix</h2>
-            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Moving from fragmented chaos to a unified engine changes the game.</p>
+          <div className="text-center mb-16 relative">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+              The Reality of Media Ad Sales — and the Fix
+            </h2>
+            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full"></div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <Card className="p-8 border-red-500/20 dark:border-red-500/10 bg-white dark:bg-slate-800 reveal">
-              <div className="flex items-center gap-2 mb-6">
-                <span className="material-symbols-outlined text-red-500">warning</span>
-                <span className="text-xs font-bold text-red-600 uppercase tracking-wider">Before (The Problem)</span>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Disconnected Tools. <br />Broken Processes.</h3>
 
-              <div className="h-48 rounded-lg bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 mb-8 relative flex items-center justify-center overflow-hidden">
-                <div className="grid grid-cols-3 gap-8">
-                  <div className="p-2 border border-dashed border-red-500/50 rounded animate-jitter [animation-delay:-0.1s]"><span className="material-symbols-outlined text-slate-400">table_view</span></div>
-                  <div className="p-2 border border-dashed border-red-500/50 rounded animate-jitter [animation-delay:-0.3s]"><span className="material-symbols-outlined text-slate-400">mail</span></div>
-                  <div className="p-2 border border-dashed border-red-500/50 rounded animate-jitter [animation-delay:-0.5s]"><span className="material-symbols-outlined text-slate-400">payments</span></div>
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-red-500 text-4xl opacity-50">link_off</span>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
 
-              <ul className="space-y-3">
-                {['CRM', 'Proposal app', 'OMS', 'PM', 'Billing/Finance', 'Spreadsheets'].map((item, idx) => (
-                  <li key={item} className={`flex items-center gap-3 text-slate-600 dark:text-slate-400 reveal [transition-delay:${idx * 100}ms]`}>
-                    <span className="material-symbols-outlined text-red-500/60 text-sm">close</span>
-                    {item} siloed
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-8 p-3 rounded bg-red-50 dark:bg-red-500/5 border border-red-100 dark:border-red-500/10 text-red-700 dark:text-red-400 font-bold text-center">
-                Automation is siloed.
+            {/* Left Card: The Problem */}
+            <Card className="p-8 md:p-10 border-t-4 border-t-red-500 bg-white dark:bg-slate-800 shadow-xl reveal h-full flex flex-col">
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2 leading-tight">
+                Disconnected Tools. Broken Processes.
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-8 font-medium">
+                Every media organization relies on a patchwork of systems:
               </p>
-            </Card>
 
-            <Card className="p-8 border-primary/20 bg-primary/5 dark:bg-primary/10 reveal">
-              <div className="flex items-center gap-2 mb-6">
-                <span className="material-symbols-outlined text-primary">verified</span>
-                <span className="text-xs font-bold text-primary uppercase tracking-wider">After (The Solution)</span>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">One Connected System.</h3>
-
-              <div className="h-48 rounded-lg bg-white dark:bg-slate-800 border border-primary/20 mb-8 relative flex items-center justify-center overflow-hidden">
-                <div className="relative">
-                  <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white z-10 relative">
-                    <span className="material-symbols-outlined">hub</span>
+              {/* Visual: Patchwork of Systems */}
+              <div className="flex-1 flex flex-col justify-center mb-8 min-h-[200px]">
+                <div className="flex flex-wrap justify-center gap-4 relative">
+                  {['CRM', 'Proposal App', 'OMS', 'Project Management', 'Billing & Finance', 'Spreadsheets'].map((item, i) => (
+                    <div key={item} className={`px-4 py-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg shadow-sm text-xs font-bold text-slate-600 dark:text-slate-300 text-center flex items-center justify-center w-[120px] aspect-[4/3] transform hover:scale-105 transition-transform ${i === 5 ? 'border-dashed' : ''}`}>
+                      {item}
+                    </div>
+                  ))}
+                  <div className="absolute -bottom-4 right-10 text-red-500 animate-bounce">
+                    <span className="material-symbols-outlined text-3xl">water_drop</span>
                   </div>
-                  <div className="absolute inset-[-40px] border border-primary/40 rounded-full animate-sonar"></div>
-                  <div className="absolute inset-[-80px] border border-primary/20 rounded-full animate-sonar [animation-delay:0.5s]"></div>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between text-[10px] font-black uppercase text-primary tracking-widest mb-6 opacity-60">
-                <span>Pitch</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                <span>Order</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                <span>Execution</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                <span>Billing</span>
+              <p className="text-slate-700 dark:text-slate-300 font-semibold mb-6">
+                Each system may be automated — but the <span className="font-bold">automation is siloed.</span>
+              </p>
+
+              {/* Result Box */}
+              <div className="mt-auto bg-slate-100 dark:bg-slate-700/50 p-6 rounded-r-lg border-l-4 border-red-500">
+                <p className="text-slate-800 dark:text-slate-200 text-sm leading-relaxed">
+                  <span className="font-bold">Result:</span> Broken Data flows. Revenue leaks. Inaccurate forecasts.
+                </p>
+              </div>
+            </Card>
+
+            {/* Right Card: The Solution */}
+            <Card className="p-8 md:p-10 border-t-4 border-t-green-500 bg-white dark:bg-slate-800 shadow-xl reveal h-full flex flex-col">
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+                One Connected System.
+              </h3>
+
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-2">
+                Pitch. Proposal. Order. Replans. Execution. Billing handoff. Reporting.
+              </p>
+              <p className="text-slate-800 dark:text-slate-200 font-bold mb-1">
+                All connected. All in Salesforce.
+              </p>
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-8">
+                No overlays. No fragile integrations. No custom CPQ projects.
+              </p>
+
+              {/* Visual: Connected Hub */}
+              <div className="flex-1 flex items-center justify-center mb-8 relative min-h-[200px]">
+                {/* Spokes */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {[0, 60, 120, 180, 240, 300].map(deg => (
+                    <div key={deg} className="absolute w-[180px] h-[2px] bg-green-400/50 origin-center" style={{ transform: `rotate(${deg}deg)` }}></div>
+                  ))}
+                </div>
+                {/* Connector Nodes (Implied) */}
+                <div className="absolute top-0 text-[10px] text-slate-400 bg-white dark:bg-slate-800 px-2">Retention</div>
+                <div className="absolute bottom-0 text-[10px] text-slate-400 bg-white dark:bg-slate-800 px-2">Optimizing</div>
+
+                {/* Central Hub */}
+                <div className="w-32 h-32 bg-[#00A1E0] rounded-full flex items-center justify-center text-center shadow-lg shadow-blue-500/30 z-10 animate-pulse-slow">
+                  <span className="text-white font-bold text-sm leading-tight px-2">Ad Sales-In-A-Box</span>
+                </div>
               </div>
 
-              <p className="text-slate-700 dark:text-slate-300 font-medium text-lg text-center mb-6 leading-relaxed">
-                "Faster proposals. Fewer errors. <br />Clean data. Higher ROI."
+              <p className="text-slate-700 dark:text-slate-300 text-sm mb-6">
+                Ad Sales-In-A-Box eliminates these silos — connecting the full Pitch-to-Pay lifecycle in one Salesforce-native system.
               </p>
-              <CTAButton variant="primary" className="w-full">Get Connected</CTAButton>
+
+              {/* Result Box */}
+              <div className="mt-auto bg-slate-100 dark:bg-slate-700/50 p-6 rounded-r-lg border-l-4 border-green-500">
+                <p className="text-slate-800 dark:text-slate-200 text-sm leading-relaxed">
+                  <span className="font-bold">Result:</span> Faster proposals. Fewer errors. Clean data. Higher ROI.
+                </p>
+              </div>
             </Card>
+
           </div>
         </Section>
 

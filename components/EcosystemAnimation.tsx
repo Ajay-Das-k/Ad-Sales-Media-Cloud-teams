@@ -27,7 +27,7 @@ const EcosystemAnimation: React.FC = () => {
         const handleScroll = () => {
             if (!ticking) {
                 window.requestAnimationFrame(() => {
-                    setRotation(window.scrollY * 0.15); // Slightly faster rotation
+                    setRotation(window.scrollY * 0.15);
                     ticking = false;
                 });
                 ticking = true;
@@ -38,61 +38,61 @@ const EcosystemAnimation: React.FC = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Circular Position: Equal scale for X and Y
     const getPos = (angleDeg: number, radius: number) => {
         const angleRad = (angleDeg * Math.PI) / 180;
         const x = Math.cos(angleRad) * radius;
-        const y = Math.sin(angleRad) * radius; // Circular!
+        const y = Math.sin(angleRad) * radius;
         return { x, y };
     };
 
     return (
         <>
             {/* 
-        Responsive Strategy:
-        Use a fixed-size reference container (e.g., 800x800) and scale it down using CSS transforms 
-        based on viewport width. This preserves the absolute positioning perfect ratio.
+        Changes:
+        1. overflow-visible (was hidden) to prevent node clipping.
+        2. Added padding y to ensure room for nodes.
       */}
-            <div className="w-full flex items-center justify-center my-8 md:my-12 overflow-hidden">
+            <div className="w-full flex items-center justify-center my-12 md:my-24 overflow-visible px-4">
                 <div
                     className="relative flex items-center justify-center select-none origin-center transition-transform"
                     style={{
                         width: '800px',
                         height: '800px',
-                        // Responsive Scaling via CSS styles below
+                        // Responsive Scaling handled below
                     }}
                     id="ecosystem-container"
                 >
 
                     {/* --- Central Node: PacePal --- */}
-                    {/* Increased Size requested */}
-                    <div className="relative z-30 w-32 h-32 md:w-56 md:h-56 flex flex-col items-center justify-center rounded-full bg-white dark:bg-slate-900 border-[6px] border-primary shadow-[0_0_60px_rgba(0,159,221,0.3)] animate-float">
+                    {/* Reduced size: w-32/56 -> w-24/40. Logo fills it. */}
+                    <div className="relative z-30 w-24 h-24 md:w-40 md:h-40 flex flex-col items-center justify-center rounded-full bg-white dark:bg-slate-900 border-[4px] border-primary shadow-[0_0_50px_rgba(0,159,221,0.25)] animate-float">
                         <div className="absolute inset-0 rounded-full bg-primary/10 animate-sonar"></div>
 
-                        {/* Logo */}
-                        <div className="w-20 h-20 md:w-36 md:h-36 rounded-full flex items-center justify-center mb-2 relative z-10 transition-transform hover:scale-105 duration-300">
+                        {/* Logo - Filled */}
+                        <div className="w-full h-full rounded-full flex items-center justify-center relative z-10 transition-transform hover:scale-105 duration-300 overflow-hidden p-2">
+                            {/* p-2 gives a small whitespace buffer so logo doesn't touch border directly, change to p-0 if absolute fill needed */}
                             <img src="pacepal_logo.png" alt="PacePal Logo" className="w-full h-full object-contain drop-shadow-sm" />
                         </div>
 
-                        {/* Text Label */}
-                        <div className="absolute -bottom-8 md:-bottom-10 bg-white dark:bg-slate-900 px-4 py-1 rounded-full border-2 border-primary shadow-lg z-20">
-                            <span className="text-xl md:text-2xl font-black text-primary tracking-tighter">PACEPAL</span>
+                        {/* Text Label - Adjusted position for smaller node */}
+                        <div className="absolute -bottom-6 md:-bottom-8 bg-white dark:bg-slate-900 px-3 py-0.5 rounded-full border border-primary shadow-lg z-20">
+                            <span className="text-sm md:text-lg font-black text-primary tracking-tighter">PACEPAL</span>
                         </div>
 
-                        {/* Decor Rings */}
-                        <div className="absolute -inset-[30px] border border-primary/20 rounded-full z-0 pointer-events-none"></div>
-                        <div className="absolute -inset-[60px] border border-dashed border-primary/20 rounded-full z-0 opacity-40 pointer-events-none"></div>
+                        {/* Decor Rings - Scaled down */}
+                        <div className="absolute -inset-[20px] border border-primary/20 rounded-full z-0 pointer-events-none"></div>
+                        <div className="absolute -inset-[40px] border border-dashed border-primary/20 rounded-full z-0 opacity-40 pointer-events-none"></div>
                     </div>
 
-                    {/* ================= VISUAL RINGS (Circular) ================= */}
+                    {/* ================= VISUAL RINGS ================= */}
                     <div
                         className="absolute border-2 border-dashed border-primary/20 rounded-full pointer-events-none transition-transform duration-700 ease-out"
-                        style={{ width: '500px', height: '500px' }} // Inner Ring Radius 250
+                        style={{ width: '500px', height: '500px' }}
                     ></div>
 
                     <div
                         className="absolute border border-slate-300 dark:border-slate-700 rounded-full pointer-events-none opacity-40"
-                        style={{ width: '800px', height: '800px' }} // Outer Ring Radius 400
+                        style={{ width: '800px', height: '800px' }}
                     ></div>
 
 
@@ -103,9 +103,6 @@ const EcosystemAnimation: React.FC = () => {
                         const currentAngle = angleOffset + rotation;
                         const pos = getPos(currentAngle, radius);
 
-                        // Simple Z-Index based on Y is OK, but circle implies flat plane?
-                        // User asked for "Circle". If flat 2D, depth sorting is less critical but nice.
-                        // Let's keep subtle depth.
                         const isFront = pos.y > 0;
                         const zIndex = isFront ? 40 : 20;
 
@@ -171,18 +168,6 @@ const EcosystemAnimation: React.FC = () => {
             <style>{`
         /* Responsive Scaling for Container */
         #ecosystem-container {
-           transform: scale(0.35); /* Base Mobile Scale */
-           height: 350px !important; /* Force Height Constraint to avoid huge gaps due to scale */
-           width: 350px !important;
-        }
-
-        /* Adjust positions since we force width/height? 
-           NO. If we force width/height on container, absolute children might clip or shift.
-           Better approach: Transform Scale the Wrapper, leaving internal pixel math alone.
-        */
-        
-        #ecosystem-container {
-             /* Reset overridden styles above just in case logic was flawed */
              width: 800px !important;
              height: 800px !important;
              transform-origin: center center;
@@ -191,24 +176,30 @@ const EcosystemAnimation: React.FC = () => {
         @media (max-width: 639px) {
            #ecosystem-container {
              transform: scale(0.38); 
-             margin: -250px 0; /* Compensation for empty space left by scaling */
+             /* Margin adjustment is crucial. With scale 0.38, the 800px box becomes 304px visually. 
+                But it takes up 800px layout space unless margin adjustment. 
+                (800 - 304) / 2 = 248px per side vertically.
+                So margin should be approx -250px.
+             */
+             margin: -250px 0; 
            }
         }
         @media (min-width: 640px) and (max-width: 1023px) {
            #ecosystem-container {
-             transform: scale(0.6);
-             margin: -150px 0;
+             transform: scale(0.55);
+             margin: -180px 0;
            }
         }
         @media (min-width: 1024px) {
            #ecosystem-container {
-             transform: scale(0.85); /* Proper Desktop Scale */
+             transform: scale(0.85);
              margin: -50px 0;
            }
         }
         @media (min-width: 1536px) {
            #ecosystem-container {
              transform: scale(1);
+             margin: 0;
            }
         }
       `}</style>

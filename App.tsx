@@ -466,6 +466,26 @@ const App: React.FC = () => {
             Orchestrated by PacePal — the Pitch-to-Pay AI.
           </p>
         </Section>
+
+        {/* Ecosystem Section */}
+        <Section id="ecosystem" className="py-24 reveal">
+          <div className="text-center mb-16 relative px-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+              An Eco-system of Connected Agents for Ad Sales
+            </h2>
+            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
+            <div className="max-w-4xl mx-auto space-y-4">
+              <p className="text-xl md:text-2xl font-bold text-[#00A1E0]">
+                An AI-First approach to Automating Workflows, Reducing Errors, and Scaling Operations.
+              </p>
+
+            </div>
+          </div>
+          <div className="flex justify-center max-w-6xl mx-auto px-4">
+            <EcosystemAnimation />
+          </div>
+        </Section>
+
         {/* Audience Split */}
         <Section id="audience" className="bg-background-dark text-white py-24 rounded-3xl mx-4 mb-24 overflow-hidden relative reveal">
           <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none"></div>
@@ -537,23 +557,7 @@ const App: React.FC = () => {
           </div>
         </Section>
 
-        {/* Ecosystem Section */}
-        <Section id="ecosystem" className="py-12 reveal">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">An Eco-system of Connected Agents for Ad Sales</h2>
-            <div className="max-w-4xl mx-auto space-y-4">
-              <p className="text-primary font-bold text-lg md:text-xl leading-relaxed">
-                Orchestrated by PacePal. Supported by a library of MCPs connecting with Ad Servers, MediaOcean, invoicing systems, reporting tools, and more.
-              </p>
-              <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
-                An AI-First approach to Automating workflows, reducing errors, and scaling operations across your Ad Sales ecosystem.
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-center max-w-6xl mx-auto px-4">
-            <EcosystemAnimation />
-          </div>
-        </Section>
+
 
         {/* AI Workflows */}
         <Section id="workflows" className="py-24 reveal">

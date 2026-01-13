@@ -1,21 +1,28 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 const NODES_INNER = [
-    { label: 'Pitch Agent', icon: 'campaign' },
-    { label: 'Optimization', icon: 'trending_up' },
-    { label: 'Reporting', icon: 'analytics' },
-    { label: 'IO Ingestion', icon: 'file_download' },
-    { label: 'Ad Servers', icon: 'dns' },
+    { label: 'Ad Server Agent', icon: 'dns' },
+    { label: 'Reporting Agent', icon: 'analytics' },
+    { label: 'Email Template Agent', icon: 'mail' },
+    { label: 'Marketing Agent', icon: 'campaign' },
+    { label: 'Media Planning Agent', icon: 'edit_calendar' },
+    { label: 'Campaign Optimization Agent', icon: 'trending_up' },
+    { label: 'IO Ingestion Agent', icon: 'file_download' },
+    { label: 'Reconciliation Agent', icon: 'fact_check' },
 ];
 
 const NODES_OUTER = [
-    { label: 'Data Management', icon: 'database' },
-    { label: 'Reconciliation', icon: 'fact_check' },
-    { label: 'Billing/Invoicing', icon: 'receipt_long' },
-    { label: 'MediaOcean MCP', icon: 'water' },
-    { label: 'Ad Server MCP', icon: 'hub' },
-    { label: 'Reporting MCP', icon: 'summarize' },
-    { label: 'Identity/Auth', icon: 'fingerprint' },
+    { label: 'Email Campaign MCP', icon: 'forward_to_inbox' },
+    { label: 'Link Management MCP', icon: 'link' },
+    { label: 'LinkedIn MCP', icon: 'work' },
+    { label: 'GAM MCP', icon: 'ad_units' },
+    { label: 'Media Ocean MCP', icon: 'water' },
+    { label: 'Strata MCP', icon: 'layers' },
+    { label: 'Facebook Ad Manager MCP', icon: 'public' },
+    { label: 'The Trade Desk MCP', icon: 'show_chart' },
+    { label: 'Billing MCP', icon: 'receipt_long' },
+    { label: 'Zillow MCP', icon: 'home_work' },
+    { label: 'US Census Bureau MCP', icon: 'groups' },
 ];
 
 const EcosystemAnimation: React.FC = () => {
@@ -76,7 +83,7 @@ const EcosystemAnimation: React.FC = () => {
 
                         {/* Text Label - Adjusted position for smaller node */}
                         <div className="absolute -bottom-6 md:-bottom-8 bg-white dark:bg-slate-900 px-3 py-0.5 rounded-full border border-primary shadow-lg z-20">
-                            <span className="text-sm md:text-lg font-black text-primary tracking-tighter">PACEPAL</span>
+                            <span className="text-sm md:text-lg font-black text-primary tracking-tighter">PacePal</span>
                         </div>
 
                         {/* Decor Rings - Scaled down */}
@@ -86,12 +93,12 @@ const EcosystemAnimation: React.FC = () => {
 
                     {/* ================= VISUAL RINGS ================= */}
                     <div
-                        className="absolute border-2 border-dashed border-primary/20 rounded-full pointer-events-none transition-transform duration-700 ease-out"
+                        className="absolute border-2 border-dashed border-primary/40 rounded-full pointer-events-none transition-transform duration-700 ease-out"
                         style={{ width: '500px', height: '500px' }}
                     ></div>
 
                     <div
-                        className="absolute border border-slate-300 dark:border-slate-700 rounded-full pointer-events-none opacity-40"
+                        className="absolute border border-slate-400 dark:border-slate-500 rounded-full pointer-events-none opacity-60"
                         style={{ width: '800px', height: '800px' }}
                     ></div>
 

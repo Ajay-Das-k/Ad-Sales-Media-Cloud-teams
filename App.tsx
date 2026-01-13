@@ -224,8 +224,12 @@ const App: React.FC = () => {
           <div className="flex flex-col gap-6 max-w-4xl mx-auto">
             {USPS.map((usp, i) => (
               <Card key={i} className={`p-8 flex items-start gap-8 hover:border-primary/50 transition-all bg-white dark:bg-slate-900/50 reveal [transition-delay:${i * 150}ms] ${i % 2 === 1 ? 'bg-slate-50 dark:bg-slate-900/80' : ''}`}>
-                <div className="w-14 h-14 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined text-3xl">{usp.icon}</span>
+                <div className="w-14 h-14 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform p-3">
+                  {usp.icon.endsWith('.png') ? (
+                    <img src={usp.icon} alt={usp.title} className="w-full h-full object-contain" />
+                  ) : (
+                    <span className="material-symbols-outlined text-3xl">{usp.icon}</span>
+                  )}
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold mb-2">{usp.title}</h3>

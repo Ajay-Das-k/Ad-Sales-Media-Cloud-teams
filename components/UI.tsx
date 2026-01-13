@@ -151,9 +151,9 @@ export const ArchitectureDiagram: React.FC = () => {
       </div>
 
       {/* Center Hub: PacePal */}
-      <div className="w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-primary flex items-center justify-center shadow-2xl shadow-primary/40 z-10 cursor-help group/pacepal relative">
+      <div className="w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-primary flex items-center justify-center shadow-2xl shadow-primary/40 z-10 cursor-help group/pacepal relative p-4">
         <div className="absolute inset-0 rounded-full bg-primary/10 animate-sonar"></div>
-        <div className="w-16 h-16 relative z-20 transition-transform group-hover/pacepal:scale-110 duration-300">
+        <div className="w-full h-full relative z-20 transition-transform group-hover/pacepal:scale-110 duration-300">
           <img src="pacepal_logo.png" alt="PacePal" className="w-full h-full object-contain" />
         </div>
         <div className="absolute top-full mt-4 p-4 rounded-xl bg-background-dark text-white text-xs w-48 opacity-0 group-hover/pacepal:opacity-100 transition-opacity pointer-events-none z-50 shadow-2xl text-center">

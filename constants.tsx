@@ -19,7 +19,7 @@ export const USPS: USPItem[] = [
     title: "AI-First, Not Retrofitted",
     description: "Built on the Agentforce foundation, predictive intelligence is native to every object.",
     result: "Result: 40% reduction in manual forecasting efforts.",
-    icon: "psychology"
+    icon: "pacepal_logo.png"
   },
   {
     title: "Fast to Deploy. Faster to Pay Off.",

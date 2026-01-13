@@ -1,11 +1,12 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  NAV_LINKS, USPS, EXTENDS_SF, WORKFLOWS, KPIS, FAQS, LOGOS 
+import {
+  NAV_LINKS, USPS, EXTENDS_SF, WORKFLOWS, KPIS, FAQS, LOGOS
 } from './constants';
-import { 
-  Section, Card, CTAButton, IconTile, KPIGrid, FAQAccordion, ArchitectureDiagram, LoadingScreen 
+import {
+  Section, Card, CTAButton, IconTile, KPIGrid, FAQAccordion, ArchitectureDiagram, LoadingScreen
 } from './components/UI';
+import EcosystemAnimation from './components/EcosystemAnimation';
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -60,9 +61,9 @@ const App: React.FC = () => {
   return (
     <>
       <LoadingScreen active={loading} />
-      
+
       <div className={`min-h-screen font-sans bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300 ${loading ? 'overflow-hidden max-h-screen' : ''}`}>
-        
+
         {/* Sticky Navbar */}
         <nav className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
           <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -73,8 +74,8 @@ const App: React.FC = () => {
 
             <div className="hidden lg:flex items-center gap-6">
               {NAV_LINKS.map(link => (
-                <a 
-                  key={link.label} 
+                <a
+                  key={link.label}
                   href={link.href}
                   className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors"
                 >
@@ -84,7 +85,7 @@ const App: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <button 
+              <button
                 onClick={toggleTheme}
                 className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400"
                 aria-label="Toggle Theme"
@@ -153,8 +154,8 @@ const App: React.FC = () => {
                 <span className="material-symbols-outlined text-red-500">warning</span>
                 <span className="text-xs font-bold text-red-600 uppercase tracking-wider">Before (The Problem)</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Disconnected Tools. <br/>Broken Processes.</h3>
-              
+              <h3 className="text-2xl font-bold mb-4">Disconnected Tools. <br />Broken Processes.</h3>
+
               <div className="h-48 rounded-lg bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 mb-8 relative flex items-center justify-center overflow-hidden">
                 <div className="grid grid-cols-3 gap-8">
                   <div className="p-2 border border-dashed border-red-500/50 rounded animate-jitter [animation-delay:-0.1s]"><span className="material-symbols-outlined text-slate-400">table_view</span></div>
@@ -185,7 +186,7 @@ const App: React.FC = () => {
                 <span className="text-xs font-bold text-primary uppercase tracking-wider">After (The Solution)</span>
               </div>
               <h3 className="text-2xl font-bold mb-4">One Connected System.</h3>
-              
+
               <div className="h-48 rounded-lg bg-white dark:bg-slate-800 border border-primary/20 mb-8 relative flex items-center justify-center overflow-hidden">
                 <div className="relative">
                   <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white z-10 relative">
@@ -207,7 +208,7 @@ const App: React.FC = () => {
               </div>
 
               <p className="text-slate-700 dark:text-slate-300 font-medium text-lg text-center mb-6 leading-relaxed">
-                "Faster proposals. Fewer errors. <br/>Clean data. Higher ROI."
+                "Faster proposals. Fewer errors. <br />Clean data. Higher ROI."
               </p>
               <CTAButton variant="primary" className="w-full">Get Connected</CTAButton>
             </Card>
@@ -307,8 +308,26 @@ const App: React.FC = () => {
           </div>
         </Section>
 
+        {/* Ecosystem Section */}
+        <Section id="ecosystem" className="py-24 bg-slate-50 dark:bg-slate-900/50 reveal">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">An Eco-system of Connected Agents for Ad Sales</h2>
+            <div className="max-w-4xl mx-auto space-y-4">
+              <p className="text-primary font-bold text-lg md:text-xl leading-relaxed">
+                Orchestrated by PacePal. Supported by a library of MCPs connecting with Ad Servers, MediaOcean, invoicing systems, reporting tools, and more.
+              </p>
+              <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                An AI-First approach to Automating workflows, reducing errors, and scaling operations across your Ad Sales ecosystem.
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-center max-w-6xl mx-auto px-4">
+            <EcosystemAnimation />
+          </div>
+        </Section>
+
         {/* AI Workflows */}
-        <Section id="workflows" className="bg-slate-50 dark:bg-slate-900/50 py-24 reveal">
+        <Section id="workflows" className="py-24 reveal">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">AI-Assisted Pitch to Pay Workflows</h2>
             <p className="text-slate-600 dark:text-slate-400">Intelligent automation for every role in the house.</p>
@@ -387,32 +406,32 @@ const App: React.FC = () => {
           </div>
           <div className="flex flex-col items-center gap-12">
             <div className="relative w-72 h-72 flex items-center justify-center">
-               <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-white z-10 shadow-2xl shadow-primary/40 animate-sonar">
-                  <span className="material-symbols-outlined text-4xl">hub</span>
-               </div>
-               {/* Orbital icons */}
-               {[
-                 { icon: 'devices', label: 'Digital', angle: 0 },
-                 { icon: 'share', label: 'Social', angle: 60 },
-                 { icon: 'tv', label: 'Linear', angle: 120 },
-                 { icon: 'print', label: 'Print', angle: 180 },
-                 { icon: 'search', label: 'Search', angle: 240 },
-                 { icon: 'location_on', label: 'D/OOH', angle: 300 },
-               ].map((item, i) => (
-                 <div 
-                   key={item.label}
-                   className="absolute flex flex-col items-center gap-1 group animate-float"
-                   style={{
-                     transform: `rotate(${item.angle}deg) translateY(-140px) rotate(-${item.angle}deg)`,
-                     animationDelay: `${i * -1.5}s`
-                   }}
-                 >
-                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer group-hover:scale-110">
-                     <span className="material-symbols-outlined">{item.icon}</span>
-                   </div>
-                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-white">{item.label}</span>
-                 </div>
-               ))}
+              <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-white z-10 shadow-2xl shadow-primary/40 animate-sonar">
+                <span className="material-symbols-outlined text-4xl">hub</span>
+              </div>
+              {/* Orbital icons */}
+              {[
+                { icon: 'devices', label: 'Digital', angle: 0 },
+                { icon: 'share', label: 'Social', angle: 60 },
+                { icon: 'tv', label: 'Linear', angle: 120 },
+                { icon: 'print', label: 'Print', angle: 180 },
+                { icon: 'search', label: 'Search', angle: 240 },
+                { icon: 'location_on', label: 'D/OOH', angle: 300 },
+              ].map((item, i) => (
+                <div
+                  key={item.label}
+                  className="absolute flex flex-col items-center gap-1 group animate-float"
+                  style={{
+                    transform: `rotate(${item.angle}deg) translateY(-140px) rotate(-${item.angle}deg)`,
+                    animationDelay: `${i * -1.5}s`
+                  }}
+                >
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer group-hover:scale-110">
+                    <span className="material-symbols-outlined">{item.icon}</span>
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-white">{item.label}</span>
+                </div>
+              ))}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
               {[
@@ -439,9 +458,9 @@ const App: React.FC = () => {
           </div>
           <KPIGrid items={KPIS} />
           <div className="mt-16 flex flex-wrap justify-center gap-12 grayscale opacity-40 reveal">
-             {LOGOS.map(brand => (
-               <span key={brand} className="text-2xl font-black italic tracking-tighter text-slate-400">{brand}</span>
-             ))}
+            {LOGOS.map(brand => (
+              <span key={brand} className="text-2xl font-black italic tracking-tighter text-slate-400">{brand}</span>
+            ))}
           </div>
         </Section>
 
@@ -449,7 +468,7 @@ const App: React.FC = () => {
         <Section className="py-24 bg-gradient-to-r from-primary to-secondary text-white text-center rounded-b-3xl mx-4 reveal">
           <h2 className="text-3xl md:text-5xl font-black mb-6">Ready to lead the future of Media Sales?</h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto mb-10">
-            Join the ranks of high-performing media teams using Ad Sales-In-A-Box to drive 
+            Join the ranks of high-performing media teams using Ad Sales-In-A-Box to drive
             predictable, scalable revenue directly within Salesforce.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

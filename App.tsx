@@ -78,18 +78,18 @@ const App: React.FC = () => {
             <span className="material-symbols-outlined text-4xl">close</span>
           </button>
           <div
-            className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10"
+            className="relative w-full max-w-7xl bg-black rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10"
             onClick={e => e.stopPropagation()}
           >
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/wP3JDGQlaiY?autoplay=1"
-              title="Product Overview Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe>
+            <div className="relative pt-[56.25%]">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/wP3JDGQlaiY?autoplay=1"
+                title="Product Overview Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         </div>
       )}

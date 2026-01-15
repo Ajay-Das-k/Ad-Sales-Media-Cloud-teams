@@ -118,7 +118,7 @@ export const FAQAccordion: React.FC<{ items: FAQItem[] }> = ({ items }) => {
 
 export const ArchitectureDiagram: React.FC = () => {
   return (
-    <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center reveal">
+    <div className="relative w-full max-w-[500px] h-[300px] sm:h-[400px] md:h-[500px] flex items-center justify-center reveal">
       {/* Ring 4: External Systems - Outer Rotating Ring */}
       <div className="absolute inset-0 border-2 border-slate-200 dark:border-slate-800 rounded-full flex items-center justify-center animate-rotate-slow">
         <div className="absolute top-0 p-2 bg-white dark:bg-slate-800 rounded-lg -translate-y-1/2 border border-slate-200 dark:border-slate-700 cursor-help group/node shadow-lg animate-float">

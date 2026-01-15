@@ -9,7 +9,7 @@ import {
 import EcosystemAnimation from './components/EcosystemAnimation';
 import ChannelsAnimation from './components/ChannelsAnimation';
 import HeroAnimation from './components/HeroAnimation';
-import ContactForm from './components/ContactForm';
+import ContactForm, { ContactFormContent } from './components/ContactForm';
 
 
 const App: React.FC = () => {
@@ -62,6 +62,7 @@ const App: React.FC = () => {
 
   const toggleTheme = () => setDarkMode(!darkMode);
   const [showVideoModal, setShowVideoModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
 
   return (
     <>
@@ -89,6 +90,26 @@ const App: React.FC = () => {
               allowFullScreen
               className="w-full h-full"
             ></iframe>
+          </div>
+        </div>
+      )}
+
+      {/* Contact Modal Overlay */}
+      {showContactModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/90 backdrop-blur-md animate-in fade-in duration-300 overflow-y-auto" onClick={() => setShowContactModal(false)}>
+          <div className="relative min-h-[calc(100vh-2rem)] flex items-center justify-center w-full py-8">
+            <button
+              className="fixed top-8 right-8 z-[110] text-white/50 hover:text-white transition-colors"
+              onClick={() => setShowContactModal(false)}
+            >
+              <span className="material-symbols-outlined text-4xl">close</span>
+            </button>
+            <div
+              className="relative w-full max-w-5xl"
+              onClick={e => e.stopPropagation()}
+            >
+              <ContactFormContent className="shadow-2xl ring-1 ring-white/10" />
+            </div>
           </div>
         </div>
       )}
@@ -128,13 +149,12 @@ const App: React.FC = () => {
                 ))}
               </div>
 
-              {/* Book a Demo Button (Pill Shape) */}
-              <a
-                href="#cta"
+              <button
+                onClick={() => setShowContactModal(true)}
                 className="hidden sm:flex items-center px-6 py-2.5 bg-[#00A1E0] hover:bg-[#008CC2] text-white text-sm font-bold rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
               >
                 Book a Demo
-              </a>
+              </button>
 
               {/* Theme Toggle */}
               <button
@@ -186,12 +206,12 @@ const App: React.FC = () => {
                 </button>
 
                 {/* Book a Demo Button */}
-                <a
-                  href="#cta"
+                <button
+                  onClick={() => setShowContactModal(true)}
                   className="flex items-center px-8 py-3.5 bg-[#00A1E0] hover:bg-[#008CC2] text-white font-bold rounded-full shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 transition-all transform hover:-translate-y-0.5"
                 >
                   Book a demo
-                </a>
+                </button>
               </div>
               <div className="pt-8 border-t border-slate-200 dark:border-slate-800">
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Trusted by Media Leaders</p>
@@ -659,11 +679,11 @@ const App: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <CTAButton className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white border-0 h-16 px-12 text-xl font-bold shadow-xl shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300">
+              <CTAButton onClick={() => setShowContactModal(true)} className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white border-0 h-16 px-12 text-xl font-bold shadow-xl shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300">
                 Request a Demo
               </CTAButton>
 
-              <button className="group flex items-center gap-3 text-slate-300 font-bold text-lg hover:text-white transition-colors px-6 py-4 rounded-xl hover:bg-white/5">
+              <button onClick={() => setShowContactModal(true)} className="group flex items-center gap-3 text-slate-300 font-bold text-lg hover:text-white transition-colors px-6 py-4 rounded-xl hover:bg-white/5">
                 <span>Talk to an Expert</span>
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </button>

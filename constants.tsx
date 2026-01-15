@@ -34,20 +34,20 @@ export const EXTENDS_SF: ExtendsSFItem[] = [
   {
     title: "Sales Cloud (Customized)",
     icon: "cloud",
-    situation: "Standard opportunities lack media-specific flighting and dayparting logic.",
-    value: "Adds native media objects to track complex multi-variant flight plans."
+    situation: "Typical situation: Media teams extend Sales Cloud with custom objects and flows.",
+    value: "Replaces fragile custom logic with media-ready workflows."
   },
   {
     title: "Revenue Cloud",
     icon: "payments",
-    situation: "CPQ struggles with complex multi-agency commissions and agency-of-record rules.",
-    value: "Automates multi-party billing splits and complex commission structures."
+    situation: "Typical situation: Revenue Cloud provides standard CPQ for all industries.",
+    value: "Adds media-specific workflows and intelligence."
   },
   {
     title: "Media Cloud",
     icon: "movie",
-    situation: "Industry-standard but often requires heavy custom development for specific workflows.",
-    value: "Provides pre-built blueprints that close the 20% gap between standard and specialized."
+    situation: "Typical situation: Media Cloud establishes a standardized media data model.",
+    value: "Operationalizes with seller- and ops-ready workflows."
   }
 ];
 
@@ -90,43 +90,35 @@ export const WORKFLOWS: WorkflowItem[] = [
 ];
 
 export const KPIS: KPIItem[] = [
-  { label: "Revenue Growth", value: "+32%", subtext: "Average increase in media yield", icon: "add_chart" },
-  { label: "Efficiency Gain", value: "450hrs", subtext: "Saved per team annually", icon: "timer" },
-  { label: "Data Accuracy", value: "99.9%", subtext: "Fidelity between CRM and OMS", icon: "check_circle" },
-  { label: "Deployment", value: "6wks", subtext: "Average time to value", icon: "speed" }
+  { label: "Time to Quote Reduced", value: "70%", subtext: "Across multi-site, multi-channel deals", icon: "timer" },
+  { label: "Revenue Growth", value: "25%", subtext: "Cross-channel revenue increase", icon: "add_chart" },
+  { label: "Campaign Errors Reduced", value: "90%", subtext: "With AI-assisted validation", icon: "check_circle" },
+  { label: "Multi-flight Campaign Execution", value: "Weeks", subtext: "Instead of months", icon: "speed" }
 ];
 
 export const FAQS: FAQItem[] = [
   {
-    question: "How does this integrate with standard Salesforce objects?",
-    answer: "Ad Sales-In-A-Box extends standard Sales and Media Cloud objects rather than replacing them, ensuring your existing reports and dashboards continue to function perfectly while gaining deep media context."
+    question: "Why should we use Ad Sales-In-A-Box if we already have Media Cloud?",
+    answer: "Media Cloud provides the data model, but Ad Sales-In-A-Box provides the ready-to-use workflows and agentic intelligence to operationalize it immediately without heavy customization."
   },
   {
-    question: "Is this compatible with Google Ad Manager and Freewheel?",
-    answer: "Yes, we provide out-of-the-box connectors for both GAM and Freewheel, allowing bi-directional sync of inventory availability and delivery metrics."
+    question: "Isn't Ad Sales-In-A-Box just another layer of complexity?",
+    answer: "No. It actually reduces complexity by orchestrating your existing tools into a single, unified interface. Agents handle the complex backend coordination so your users don't have to."
   },
   {
-    question: "Do we need specialized developers to maintain the AI workflows?",
-    answer: "No. All workflows are built using Salesforce Flow and Agentforce prompts, allowing your standard Salesforce Admins to manage and tweak them without writing code."
+    question: "How does Ad Sales-In-A-Box save time for our teams?",
+    answer: "By automating manual tasks like RFP data entry, inventory checks, and reconciliation, our agents can reduce manual operations by up to 40%, freeing your team to focus on selling."
   },
   {
-    question: "What is the typical implementation timeline?",
-    answer: "Most customers are live within 4-8 weeks, depending on the complexity of their legacy data migration and the number of custom ad server integrations."
+    question: "Will Ad Sales-In-A-Box require a lot of custom implementations?",
+    answer: "No. It is a \"Box\" solution designed for rapid deployment. Most customers are live in weeks with standard configuration, avoiding the \"custom code trap.\""
   },
   {
-    question: "How does 'PacePal' work with Agentforce?",
-    answer: "PacePal is our specialized Media agent package built on top of the Agentforce framework, providing domain-specific actions and reasoning for ad sales workflows."
-  },
-  {
-    question: "Can we use our own custom forecasting models?",
-    answer: "Absolutely. Our platform is fully extensible, allowing you to plug in your own data science models or use our pre-built predictive analytics."
-  },
-  {
-    question: "Does this support multi-currency and multi-agency billing?",
-    answer: "Yes, the system is designed for global media organizations and handles multi-currency transactions as well as complex multi-agency commissioning structures natively."
+    question: "We already have Salesforce. How can Ad Sales-In-A-Box be of use?",
+    answer: "Salesforce is the platform; Ad Sales-In-A-Box is the accelerator. We provide the specific logic, agents, and UI needed for Ad Sales that standard Salesforce instances don't offer out of the box."
   }
 ];
 
 export const LOGOS = [
-  "Sony", "ADA", "Yahoo!", "Disney", "Warner", "Paramount"
+  "ADA", "Sony", "Yahoo!", "MediaCorp", "BroadcastCo"
 ];

@@ -9,6 +9,7 @@ import {
 import EcosystemAnimation from './components/EcosystemAnimation';
 import ChannelsAnimation from './components/ChannelsAnimation';
 import HeroAnimation from './components/HeroAnimation';
+import ContactForm from './components/ContactForm';
 
 
 const App: React.FC = () => {
@@ -478,7 +479,6 @@ const App: React.FC = () => {
               <p className="text-xl md:text-2xl font-bold text-[#00A1E0]">
                 An AI-First approach to Automating Workflows, Reducing Errors, and Scaling Operations.
               </p>
-
             </div>
           </div>
           <div className="flex justify-center max-w-6xl mx-auto px-4">
@@ -486,54 +486,110 @@ const App: React.FC = () => {
           </div>
         </Section>
 
-        {/* Audience Split */}
-        <Section id="audience" className="bg-background-dark text-white py-24 rounded-3xl mx-4 mb-24 overflow-hidden relative reveal">
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none"></div>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Who Is It For</h2>
-            <p className="text-slate-400">Tailored solutions for every stakeholder in the media sales ecosystem.</p>
+        {/* Converged Ad Sales */}
+        <Section id="channels" className="py-24 bg-background-dark text-white rounded-t-3xl mx-4 reveal">
+          <div className="text-center mb-16 relative px-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Sell Across All Channels from a Single Platform</h2>
+            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
+            <p className="text-xl md:text-2xl font-bold text-[#00A1E0]">One view of truth across all media types.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <Card className="p-10 bg-white/5 border-white/10 flex flex-col items-center text-center backdrop-blur-sm reveal">
-              <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-6 animate-float">
-                <span className="material-symbols-outlined text-4xl">business_center</span>
-              </div>
-              <h3 className="text-2xl font-bold mb-6">Media Publishers & Agencies</h3>
-              <ul className="space-y-4 text-slate-300 mb-10 text-left w-full">
-                {['Scale operations without adding headcount', 'Automate multi-channel order entry', 'Real-time pacing and delivery insights', 'Eliminate manual billing reconciliation'].map(item => (
-                  <li key={item} className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <CTAButton variant="primary" className="w-full">View Publisher Solution</CTAButton>
-            </Card>
 
-            <Card className="p-10 bg-white/5 border-white/10 flex flex-col items-center text-center backdrop-blur-sm reveal [transition-delay:200ms]">
-              <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center text-secondary mb-6 animate-float [animation-delay:-2s]">
-                <span className="material-symbols-outlined text-4xl">handshake</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto px-4">
+            {/* Left Column: Text Content */}
+            <div className="flex flex-col gap-8">
+              <p className="text-lg text-slate-300 leading-relaxed border-l-4 border-primary pl-6">
+                Unified workflows for digital, social, linear TV, print, search, D/OOH, and more.
+                Ad Sales-In-A-Box orchestrates cross-channel sales with AI-assisted workflows.
+              </p>
+
+              <div className="space-y-6">
+                {[
+                  'Cross-channel visibility in one place',
+                  'Consistent AI-assisted workflows',
+                  'Direct and programmatic sales motions supported',
+                  'Scalable multi-site, multi-flight campaigns'
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors reveal" style={{ transitionDelay: `${i * 100}ms` }}>
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
+                      <span className="material-symbols-outlined text-xl">check</span>
+                    </div>
+                    <span className="text-lg font-medium text-slate-200">{item}</span>
+                  </div>
+                ))}
               </div>
-              <h3 className="text-2xl font-bold mb-6">Salesforce Sellers & Partners</h3>
-              <ul className="space-y-4 text-slate-300 mb-10 text-left w-full">
-                {['Accelerate Media Cloud deal cycles', 'Pre-built media data model accelerators', 'Reduce implementation risk and complexity', 'Higher customer satisfaction scores'].map(item => (
-                  <li key={item} className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-secondary text-sm">check_circle</span>
-                    {item}
+            </div>
+
+            {/* Right Column: Visual */}
+            <div className="flex justify-center lg:justify-end">
+              <ChannelsAnimation />
+            </div>
+          </div>
+        </Section>
+
+
+
+        {/* Audience Split */}
+        <Section id="audience" className="py-24 reveal">
+          <div className="text-center mb-16 relative px-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Who Is It For</h2>
+            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
+            <p className="text-xl md:text-2xl font-bold text-[#00A1E0] max-w-2xl mx-auto">
+              Sell smarter. Operate faster. On Salesforce.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
+            {/* Card 1: Publishers */}
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col reveal" style={{ transitionDelay: '100ms' }}>
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Media Publishers & Agencies</h3>
+                <p className="text-slate-600 dark:text-slate-400">A complete ad sales system, built on Salesforce.</p>
+              </div>
+              <ul className="space-y-4 mb-10 flex-1">
+                {['Convert opportunities to proposals', 'Manage inventory and pricing', 'Replan, Optimize, & Makegoods', 'Sync spreadsheets in real time'].map(item => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-[#00A1E0] text-xl shrink-0 mt-0.5">arrow_right_alt</span>
+                    <span className="text-slate-600 dark:text-slate-300 text-sm md:text-base">{item}</span>
                   </li>
                 ))}
               </ul>
-              <CTAButton variant="secondary" className="w-full border-secondary text-secondary hover:bg-secondary hover:text-white">Partner Program Info</CTAButton>
-            </Card>
+              <div className="mt-auto">
+                <a href="#" className="inline-flex items-center gap-2 text-[#00A1E0] font-bold hover:gap-3 transition-all">
+                  See how media teams run ad sales on Salesforce <span className="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 2: Partners */}
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col reveal" style={{ transitionDelay: '200ms' }}>
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Salesforce Sellers & Partners</h3>
+                <p className="text-slate-600 dark:text-slate-400">A media-ready extension of Salesforce that closes deals.</p>
+              </div>
+              <ul className="space-y-4 mb-10 flex-1">
+                {['Pre-configured media workflows', 'Lower total cost of deals', 'Accelerate deployment and pipeline', 'Native Salesforce security and data'].map(item => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-[#00A1E0] text-xl shrink-0 mt-0.5">arrow_right_alt</span>
+                    <span className="text-slate-600 dark:text-slate-300 text-sm md:text-base">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-auto">
+                <a href="#" className="inline-flex items-center gap-2 text-[#00A1E0] font-bold hover:gap-3 transition-all">
+                  See how ASIAB extends Salesforce <span className="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </div>
+            </div>
           </div>
-          <p className="mt-16 text-center text-slate-500 font-medium">One Salesforce platform. Extended for Media selling.</p>
+          <p className="mt-16 text-center text-slate-900 dark:text-white font-bold text-lg">One Salesforce platform. Extended for Media selling.</p>
         </Section>
 
         {/* Extends Salesforce */}
         <Section id="extends-sf" className="py-24 reveal">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Extends Salesforce</h2>
-            <p className="text-slate-600 dark:text-slate-400">Leverage the power of the core while adding domain depth.</p>
+          <div className="text-center mb-16 relative px-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Built to Extend Salesforce—Across Ad Sales Scenarios</h2>
+            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
+            <p className="text-xl md:text-2xl font-bold text-[#00A1E0]">Ad sales workflows that scale. Native to Salesforce, ready in weeks.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {EXTENDS_SF.map((item, i) => (
@@ -553,122 +609,31 @@ const App: React.FC = () => {
             ))}
           </div>
           <div className="p-6 rounded-2xl bg-primary text-white text-center font-bold text-lg shadow-xl shadow-primary/20 reveal">
-            Outcome: A unified revenue engine that actually speaks "Media" out of the box.
-          </div>
-        </Section>
-
-
-
-        {/* AI Workflows */}
-        <Section id="workflows" className="py-24 reveal">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">AI-Assisted Pitch to Pay Workflows</h2>
-            <p className="text-slate-600 dark:text-slate-400">Intelligent automation for every role in the house.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            {WORKFLOWS.slice(0, 3).map((item, i) => (
-              <Card key={i} className="p-6 hover:shadow-lg transition-shadow bg-white dark:bg-slate-800 reveal">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined">{item.icon}</span>
-                  </div>
-                  <span className="text-[10px] font-bold text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">{item.agent}</span>
-                </div>
-                <h4 className="font-bold text-lg mb-2">{item.headline}</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{item.description}</p>
-                <p className="text-xs font-bold text-primary">{item.outcome}</p>
-              </Card>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-            {WORKFLOWS.slice(3).map((item, i) => (
-              <Card key={i} className="p-6 hover:shadow-lg transition-shadow bg-white dark:bg-slate-800 reveal">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined">{item.icon}</span>
-                  </div>
-                  <span className="text-[10px] font-bold text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">{item.agent}</span>
-                </div>
-                <h4 className="font-bold text-lg mb-2">{item.headline}</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{item.description}</p>
-                <p className="text-xs font-bold text-primary">{item.outcome}</p>
-              </Card>
-            ))}
-          </div>
-          <Card className="p-8 bg-gradient-to-r from-background-dark to-slate-800 text-white border-none flex flex-col md:flex-row items-center gap-6 reveal">
-            <div className="w-20 h-20 shrink-0 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/40 animate-sonar">
-              <span className="material-symbols-outlined text-4xl">smart_toy</span>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-2">PacePal Callout</h3>
-              <p className="text-slate-300">"All workflows are orchestrated by PacePal — our master AI agent specifically trained for media inventory management. Works seamlessly with Salesforce Agentforce."</p>
-            </div>
-          </Card>
-        </Section>
-
-        {/* Architecture Section */}
-        <Section id="architecture" className="py-24 reveal">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Agentic AI Architecture</h2>
-            <p className="text-slate-600 dark:text-slate-400">Deep integration across your entire stack.</p>
-          </div>
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="flex-1 w-full flex justify-center">
-              <ArchitectureDiagram />
-            </div>
-            <div className="flex-1 space-y-8">
-              {[
-                { title: 'Core: PacePal', desc: 'The reasoning engine that connects user intent with automated system actions.', id: 'arch-1' },
-                { title: 'Ring 2: Task Agents', desc: 'Scout, Planner, Optimizer, and Auditor — each specialized for the ad sales lifecycle.', id: 'arch-2' },
-                { title: 'Ring 3: MCPs', desc: 'Standardized connectors for media planning, inventory, and pricing protocols.', id: 'arch-3' }
-              ].map((item, i) => (
-                <div key={item.id} className="p-4 border-l-4 border-primary bg-primary/5 reveal" style={{ transitionDelay: `${i * 200}ms` }}>
-                  <h4 className="font-bold text-lg mb-2">{item.title}</h4>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Section>
-
-        {/* Converged Ad Sales */}
-        <Section id="channels" className="py-24 bg-background-dark text-white rounded-t-3xl mx-4 reveal">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Converged Ad Sales Across Channels</h2>
-            <p className="text-slate-400">One view of truth across all media types.</p>
-          </div>
-          <div className="flex flex-col items-center gap-12">
-            <ChannelsAnimation />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
-              {[
-                'Unified planning across Linear & Digital',
-                'Real-time availability of OOH inventory',
-                'Cross-platform frequency capping',
-                'Converged billing for complex campaigns',
-                'Single point of entry for agency partners'
-              ].map((benefit, i) => (
-                <div key={benefit} className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/5 reveal" style={{ transitionDelay: `${i * 100}ms` }}>
-                  <span className="material-symbols-outlined text-primary">done_all</span>
-                  <span className="text-sm text-slate-300">{benefit}</span>
-                </div>
-              ))}
-            </div>
+            ✓ Go live in weeks, lower cost, adoption & productivity across all Salesforce clouds
           </div>
         </Section>
 
         {/* Proof Points */}
         <Section id="proof" className="py-24 reveal">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Customer Success</h2>
-            <p className="text-slate-600 dark:text-slate-400">Hard metrics from real-world deployments.</p>
+          <div className="text-center mb-16 relative px-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Proven Results Across Ad Sales</h2>
+            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
+            <p className="text-xl md:text-2xl font-bold text-[#00A1E0]">Faster deals, higher revenue, and operational efficiency across every channel.</p>
           </div>
           <KPIGrid items={KPIS} />
-          <div className="mt-16 flex flex-wrap justify-center gap-12 grayscale opacity-40 reveal">
-            {LOGOS.map(brand => (
-              <span key={brand} className="text-2xl font-black italic tracking-tighter text-slate-400">{brand}</span>
-            ))}
+          <div className="mt-16 text-center reveal">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">Trusted by Industry Leaders</h3>
+            <div className="flex flex-wrap justify-center gap-12 grayscale opacity-40">
+              {LOGOS.map(brand => (
+                <span key={brand} className="text-2xl font-black italic tracking-tighter text-slate-400">{brand}</span>
+              ))}
+            </div>
           </div>
         </Section>
+
+
+
+
 
         {/* Final CTA Band */}
         {/* Final CTA Band (Redesigned) */}
@@ -686,12 +651,11 @@ const App: React.FC = () => {
             </div>
 
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-8 leading-tight">
-              Transform your Ad Sales <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Revenue Engine</span> today.
+              Launch Modern Ad Sales on Salesforce. In Weeks.
             </h2>
 
             <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-              Join high-performing media teams using <span className="text-white font-semibold">Ad Sales-In-A-Box</span> to drive predictable, scalable growth directly within Salesforce.
+              Accelerate deployment, increase adoption, and drive productivity across your Ad Sales organization.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -705,26 +669,81 @@ const App: React.FC = () => {
               </button>
             </div>
 
-            <div className="mt-12 flex items-center justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-              <div className="h-8 w-px bg-white/20"></div>
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Rapid Integration</span>
-              <div className="h-8 w-px bg-white/20"></div>
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Secure by Design</span>
-              <div className="h-8 w-px bg-white/20"></div>
+            <div className="mt-12 text-center opacity-80">
+              <p className="text-sm md:text-base text-slate-400 font-medium">
+                Proven across complex, multi-channel Ad Sales environments — from direct to programmatic.
+              </p>
             </div>
           </div>
         </div>
 
         {/* FAQ */}
-        <Section id="faq" className="py-24 bg-slate-50 dark:bg-slate-900/50 reveal">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Questions / FAQ</h2>
-            <p className="text-slate-600 dark:text-slate-400">Everything you need to know about the Media Ad Sales engine.</p>
+        <Section id="faq" className="py-24 reveal">
+          <div className="text-center mb-16 relative px-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
           </div>
           <div className="max-w-3xl mx-auto">
             <FAQAccordion items={FAQS} />
           </div>
         </Section>
+
+        {/* Contact Form */}
+        <ContactForm />
+
+        {/* AI Workflows */}
+        <Section id="workflows" className="py-24 reveal">
+          <div className="text-center mb-16 relative px-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+              Intelligent Workflows
+            </h2>
+            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
+            <p className="text-xl md:text-2xl font-bold text-[#00A1E0]">
+              Automated by Agents. Orchestrated by PacePal.
+            </p>
+          </div>
+          <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {WORKFLOWS.map((flow, i) => (
+              <Card key={i} className="p-8 bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 reveal" style={{ transitionDelay: `${i * 100}ms` }}>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <span className="material-symbols-outlined text-2xl">{flow.icon}</span>
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">{flow.agent}</div>
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">{flow.headline}</h3>
+                  </div>
+                </div>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">
+                  {flow.description}
+                </p>
+                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border-l-4 border-green-500">
+                  <p className="text-xs font-bold text-green-700 dark:text-green-300">
+                    {flow.outcome}
+                  </p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </Section>
+
+        {/* Architecture Diagram */}
+        <Section id="architecture" className="py-24 bg-slate-50 dark:bg-slate-900/30 reveal">
+          <div className="text-center mb-16 relative px-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+              Agentic AI Architecture
+            </h2>
+            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
+            <p className="text-xl md:text-2xl font-bold text-[#00A1E0]">
+              Secure. Scalable. Connected to Salesforce Core.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <ArchitectureDiagram />
+          </div>
+        </Section>
+
+
 
         {/* Footer */}
         <footer className="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark reveal">

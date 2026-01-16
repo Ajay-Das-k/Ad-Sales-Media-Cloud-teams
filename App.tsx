@@ -670,7 +670,7 @@ const App: React.FC = () => {
               Ready for the future?
             </div>
 
-            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-8 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
               Launch Modern Ad Sales on Salesforce. In Weeks.
             </h2>
 
@@ -711,73 +711,35 @@ const App: React.FC = () => {
         {/* Contact Form */}
         <ContactForm />
 
-        {/* AI Workflows */}
-        <Section id="workflows" className="py-24 reveal">
-          <div className="text-center mb-16 relative px-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-              Intelligent Workflows
-            </h2>
-            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
-            <p className="text-xl md:text-2xl font-bold text-[#00A1E0]">
-              Automated by Agents. Orchestrated by PacePal.
-            </p>
-          </div>
-          <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {WORKFLOWS.map((flow, i) => (
-              <Card key={i} className="p-8 bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 reveal" style={{ transitionDelay: `${i * 100}ms` }}>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined text-2xl">{flow.icon}</span>
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">{flow.agent}</div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">{flow.headline}</h3>
-                  </div>
-                </div>
-                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">
-                  {flow.description}
-                </p>
-                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border-l-4 border-green-500">
-                  <p className="text-xs font-bold text-green-700 dark:text-green-300">
-                    {flow.outcome}
-                  </p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Section>
 
-        {/* Architecture Diagram */}
-        <Section id="architecture" className="py-24 bg-slate-50 dark:bg-slate-900/30 reveal">
-          <div className="text-center mb-16 relative px-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-              Agentic AI Architecture
-            </h2>
-            <div className="w-24 h-1 bg-[#00A1E0] mx-auto rounded-full mb-6"></div>
-            <p className="text-xl md:text-2xl font-bold text-[#00A1E0]">
-              Secure. Scalable. Connected to Salesforce Core.
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <ArchitectureDiagram />
-          </div>
-        </Section>
+
+
 
 
 
         {/* Footer */}
-        <footer className="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark reveal">
-          <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-3">
-              <img src="logo.png" alt="Ad Sales-In-A-Box Logo" className="w-10 h-10 object-contain" />
-              <span className="font-bold text-lg tracking-tight">Ad Sales-In-A-Box</span>
+        <footer className="py-12 border-t border-white/10 bg-[#0B1220] text-slate-400 reveal">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-12">
+              <div className="flex items-center gap-3">
+                <img src="logo.png" alt="Ad Sales-In-A-Box Logo" className="w-8 h-8 object-contain" />
+                <span className="font-bold text-lg text-primary tracking-tight">Ad Sales-In-A-Box</span>
+              </div>
+
+              <div className="flex gap-8 text-sm font-semibold text-slate-300">
+                <a href="#" className="hover:text-primary transition-colors">Product</a>
+                <a href="#" className="hover:text-primary transition-colors">Solution</a>
+                <a href="#" className="hover:text-primary transition-colors">Partners</a>
+              </div>
             </div>
-            <div className="flex gap-8 text-sm text-slate-500">
-              <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-primary transition-colors">Cookie Settings</a>
+
+            <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+              <p>© 2025 Ad Sales-In-A-Box. One Salesforce platform. Extended for Media selling.</p>
+              <div className="flex gap-6">
+                <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-slate-300 transition-colors">Terms of Service</a>
+              </div>
             </div>
-            <p className="text-slate-400 text-sm">© 2024 Salesforce Media Cloud Partner. All rights reserved.</p>
           </div>
         </footer>
       </div >

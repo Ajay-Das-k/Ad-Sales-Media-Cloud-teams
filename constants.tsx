@@ -3,9 +3,8 @@ import { NavLink, KPIItem, FAQItem, WorkflowItem, USPItem, ExtendsSFItem } from 
 
 export const NAV_LINKS: NavLink[] = [
   { label: 'Solution', href: '#problem' },
-  { label: 'AI Agents', href: '#workflows' },
-  { label: 'Architecture', href: '#architecture' },
-  { label: 'Results', href: '#proof-points' },
+  { label: 'AI Agents', href: '#ecosystem' },
+  { label: 'Results', href: '#proof' },
   { label: 'FAQ', href: '#faq' },
 ];
 

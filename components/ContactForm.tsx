@@ -1,50 +1,8 @@
 import React from 'react';
 import { Section } from './UI';
+import { Link } from 'react-router-dom';
 
-const ContactVector: React.FC = () => (
-    <div className="relative w-full h-64 md:h-full min-h-[300px] flex items-center justify-center">
-        {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-20">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        </div>
 
-        {/* Central Node (Salesforce/Hub) */}
-        <div className="relative z-10 w-24 h-24 bg-[#00A1E0] rounded-2xl rotate-45 flex items-center justify-center shadow-[0_0_40px_rgba(0,161,224,0.4)] animate-float">
-            <div className="w-20 h-20 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center -rotate-45">
-                <span className="material-symbols-outlined text-white text-4xl">cloud_sync</span>
-            </div>
-            {/* Pulse Rings */}
-            <div className="absolute inset-0 border border-white/30 rounded-2xl animate-ping opacity-20"></div>
-        </div>
-
-        {/* Orbiting Satellite Data Packets */}
-        {[0, 90, 180, 270].map((deg, i) => (
-            <div key={i} className="absolute inset-0 animate-rotate-slow" style={{ animationDelay: `-${i * 2}s`, transform: `rotate(${deg}deg)` }}>
-                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-12 h-12 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 flex items-center justify-center animate-float" style={{ animationDelay: `-${i * 1.5}s` }}>
-                    <span className="material-symbols-outlined text-primary text-xl">
-                        {['mail', 'chat', 'rocket_launch', 'handshake'][i]}
-                    </span>
-                    {/* Connection Line */}
-                    <div className="absolute top-full left-1/2 w-px h-20 bg-gradient-to-b from-primary/50 to-transparent"></div>
-                </div>
-            </div>
-        ))}
-
-        {/* Floating Elements */}
-        <div className="absolute top-10 right-10 p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-100 dark:border-slate-700 animate-float" style={{ animationDelay: '-1s' }}>
-            <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                <span className="text-[10px] font-bold text-slate-500">System Online</span>
-            </div>
-        </div>
-        <div className="absolute bottom-10 left-10 p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-100 dark:border-slate-700 animate-float" style={{ animationDelay: '-2.5s' }}>
-            <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-purple-500"></div>
-                <span className="text-[10px] font-bold text-slate-500">Agent Ready</span>
-            </div>
-        </div>
-    </div>
-);
 
 export const ContactFormContent: React.FC<{ className?: string }> = ({ className = '' }) => (
     <div className={`relative rounded-3xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl ${className}`}>
@@ -63,7 +21,19 @@ export const ContactFormContent: React.FC<{ className?: string }> = ({ className
 
                 {/* Vector Animation */}
                 <div className="flex-1 min-h-[300px]">
-                    <ContactVector />
+                    {/* Static Graphics for Light/Dark Mode */}
+                    <div className="w-full h-full flex items-center justify-center p-8">
+                        <img
+                            src="/contact_illustration_light.png"
+                            alt="Contact Illustration"
+                            className="w-full h-full object-contain max-h-[300px] block dark:hidden drop-shadow-xl"
+                        />
+                        <img
+                            src="/contact_illustration_dark.png"
+                            alt="Contact Illustration"
+                            className="w-full h-full object-contain max-h-[300px] hidden dark:block drop-shadow-xl filter brightness-110"
+                        />
+                    </div>
                 </div>
 
                 <div className="relative z-10 mt-8 flex flex-wrap gap-4">
@@ -118,7 +88,7 @@ export const ContactFormContent: React.FC<{ className?: string }> = ({ className
                     </button>
 
                     <p className="text-center text-xs text-slate-400">
-                        By submitting this form, you agree to our <a href="#" className="underline hover:text-primary">Terms</a> and <a href="#" className="underline hover:text-primary">Privacy Policy</a>.
+                        By submitting this form, you agree to our <Link to="/terms" className="underline hover:text-primary">Terms</Link> and <Link to="/privacy" className="underline hover:text-primary">Privacy Policy</Link>.
                     </p>
                 </form>
             </div>
